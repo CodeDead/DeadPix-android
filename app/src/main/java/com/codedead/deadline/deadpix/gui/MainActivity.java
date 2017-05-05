@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             int flipperPosition = savedInstanceState.getInt("TAB_NUMBER");
             viewFlipper.setDisplayedChild(flipperPosition);
 
-            if (flipperPosition > 1) {
+            if (flipperPosition > 0) {
                 navigationView.setCheckedItem(navigationView.getMenu().getItem(1).getSubMenu().getItem(flipperPosition - 1).getItemId());
             } else {
                 navigationView.setCheckedItem(navigationView.getMenu().getItem(0).getSubMenu().getItem(flipperPosition).getItemId());

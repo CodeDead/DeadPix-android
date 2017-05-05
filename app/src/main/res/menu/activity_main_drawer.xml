@@ -3,7 +3,9 @@
 
     <item android:title="@string/nav_tools">
         <menu>
-            <group android:checkableBehavior="single">
+            <group
+                android:id="@+id/group_tools"
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_fixer"
                     android:icon="@drawable/ic_menu_screen"
@@ -14,7 +16,9 @@
 
     <item android:title="@string/nav_info">
         <menu>
-            <group android:checkableBehavior="single">
+            <group
+                android:id="@+id/group_info"
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_help"
                     android:icon="@drawable/ic_menu_help"
