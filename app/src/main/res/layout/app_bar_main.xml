@@ -28,6 +28,7 @@
 
         <include layout="@layout/content_main" />
         <include layout="@layout/content_help" />
+        <include layout="@layout/content_about" />
 
     </ViewFlipper>
 

@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         content_fixer();
         content_help();
+        content_about();
     }
 
     private void content_fixer() {
@@ -101,6 +102,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             .startChooser();
                 }
             });
+    }
+
+    private void content_about() {
+        Button btnWebsite = (Button) findViewById(R.id.BtnWebsiteAbout);
+        btnWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCodeDead();
+            }
+        });
     }
 
     private void openCodeDead() {
