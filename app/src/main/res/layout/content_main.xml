@@ -15,36 +15,48 @@
         android:layout_margin="5dp">
 
         <TableRow android:layout_margin="5dp">
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_red"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/red"/>
+                android:backgroundTint="@color/red"
+                app:fabSize="normal" />
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_green"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/green"/>
+                android:backgroundTint="@color/green"
+                app:fabSize="normal" />
         </TableRow>
 
         <TableRow android:layout_margin="5dp">
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_blue"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue"/>
+                android:backgroundTint="@color/blue"
+                app:fabSize="normal" />
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_yellow"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/yellow"/>
+                android:backgroundTint="@color/yellow"
+                app:fabSize="normal" />
         </TableRow>
 
         <TableRow android:layout_margin="5dp">
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_white"
                 android:layout_margin="5dp"
-                android:backgroundTint="@android:color/white"/>
+                android:backgroundTint="@android:color/white"
+                app:fabSize="normal" />
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_black"
                 android:layout_margin="5dp"
-                android:backgroundTint="@android:color/black"/>
+                android:backgroundTint="@android:color/black"
+                app:fabSize="normal" />
         </TableRow>
 
     </TableLayout>
