@@ -1,18 +1,22 @@
 package com.codedead.deadline.deadpix.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         content_fixer();
+        content_help();
     }
 
     private void content_fixer() {
@@ -71,6 +76,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FloatingActionButton fabWhite = (FloatingActionButton) findViewById(R.id.fab_white);
         FloatingActionButton fabBlack = (FloatingActionButton) findViewById(R.id.fab_black);
         Button btnFix = (Button) findViewById(R.id.BtnFix);
+    }
+
+    private void content_help() {
+            Button btnWebsite = (Button) findViewById(R.id.BtnWebsite);
+            Button btnSupport = (Button) findViewById(R.id.BtnMail);
+
+            btnWebsite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openCodeDead();
+                }
+            });
+
+            btnSupport.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ShareCompat.IntentBuilder.from(MainActivity.this)
+                            .setType("message/rfc822")
+                            .addEmailTo("admin@codedead.com")
+                            .setSubject("DeadPix - Android")
+                            .setText("")
+                            .setChooserTitle(R.string.text_send_mail)
+                            .startChooser();
+                }
+            });
+    }
+
+    private void openCodeDead() {
+        Uri uriUrl = Uri.parse("http://codedead.com/");
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 
     @Override

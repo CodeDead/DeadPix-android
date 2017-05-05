@@ -5,6 +5,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="toast_back_again">Press \'BACK\' again to exit</string>
+    <string name="text_send_mail">Send us an e-mail</string>
 
     <string name="nav_help">Help</string>
     <string name="nav_about">About</string>
