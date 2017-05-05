@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             viewFlipper.setDisplayedChild(flipperPosition);
 
             if (flipperPosition > 1) {
-                navigationView.setCheckedItem(navigationView.getMenu().getItem(1).getSubMenu().getItem(flipperPosition - 2).getItemId());
+                navigationView.setCheckedItem(navigationView.getMenu().getItem(1).getSubMenu().getItem(flipperPosition - 1).getItemId());
             } else {
                 navigationView.setCheckedItem(navigationView.getMenu().getItem(0).getSubMenu().getItem(flipperPosition).getItemId());
             }

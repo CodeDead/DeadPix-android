@@ -5,7 +5,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codedead.deadline.deadpix.gui.MainActivity">
+    tools:context="com.codedead.deadline.deadpix.gui.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TableRow android:layout_margin="5dp">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_red"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/red"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_green"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/green"/>
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_blue"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/blue"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_yellow"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/yellow"/>
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_white"
+                android:layout_margin="5dp"
+                android:backgroundTint="@android:color/white"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_black"
+                android:layout_margin="5dp"
+                android:backgroundTint="@android:color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fix">
+
+    </Button>
 
 </LinearLayout>
