@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -57,6 +59,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             navigationView.setCheckedItem(navigationView.getMenu().getItem(0).getSubMenu().getItem(0).getItemId());
         }
+
+        content_fixer();
+    }
+
+    private void content_fixer() {
+        FloatingActionButton fabRed = (FloatingActionButton) findViewById(R.id.fab_red);
+        FloatingActionButton fabGreen = (FloatingActionButton) findViewById(R.id.fab_green);
+        FloatingActionButton fabBlue = (FloatingActionButton) findViewById(R.id.fab_blue);
+        FloatingActionButton fabYellow = (FloatingActionButton) findViewById(R.id.fab_yellow);
+        FloatingActionButton fabWhite = (FloatingActionButton) findViewById(R.id.fab_white);
+        FloatingActionButton fabBlack = (FloatingActionButton) findViewById(R.id.fab_black);
+        Button btnFix = (Button) findViewById(R.id.BtnFix);
     }
 
     @Override
