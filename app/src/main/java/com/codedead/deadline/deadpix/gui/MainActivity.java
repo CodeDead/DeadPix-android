@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ShareCompat;
@@ -24,6 +26,9 @@ import android.widget.ViewFlipper;
 
 import com.codedead.deadline.deadpix.R;
 import com.codedead.deadline.deadpix.domain.LocaleHelper;
+import com.tapadoo.alerter.Alerter;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -68,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         content_fixer();
         content_help();
         content_about();
+
+        content_alerts();
     }
 
     private void content_fixer() {
@@ -81,28 +88,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_help() {
-            Button btnWebsite = (Button) findViewById(R.id.BtnWebsite);
-            Button btnSupport = (Button) findViewById(R.id.BtnMail);
+        Button btnWebsite = (Button) findViewById(R.id.BtnWebsite);
+        Button btnSupport = (Button) findViewById(R.id.BtnMail);
 
-            btnWebsite.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openSite("http://codedead.com/");
-                }
-            });
+        btnWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSite("http://codedead.com/");
+            }
+        });
 
-            btnSupport.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ShareCompat.IntentBuilder.from(MainActivity.this)
-                            .setType("message/rfc822")
-                            .addEmailTo("admin@codedead.com")
-                            .setSubject("DeadPix - Android")
-                            .setText("")
-                            .setChooserTitle(R.string.text_send_mail)
-                            .startChooser();
-                }
-            });
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareCompat.IntentBuilder.from(MainActivity.this)
+                        .setType("message/rfc822")
+                        .addEmailTo("admin@codedead.com")
+                        .setSubject("DeadPix - Android")
+                        .setText("")
+                        .setChooserTitle(R.string.text_send_mail)
+                        .startChooser();
+            }
+        });
     }
 
     private void content_about() {
@@ -139,10 +146,67 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    private void content_alerts() {
+        if (sharedPreferences.getInt("reviewTimes", 0) >= 2) return;
+
+        Random rnd = new Random();
+
+        new CountDownTimer(rnd.nextInt(180) * 1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                Alerter.create(MainActivity.this)
+                        .setTitle(R.string.alert_review_title)
+                        .setText(R.string.alert_review_text)
+                        .setIcon(R.drawable.ic_rate_review)
+                        .setBackgroundColor(R.color.colorAccent)
+                        .setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                addReview(true);
+                                openPlayStore();
+                            }
+                        })
+                        .show();
+                addReview(false);
+            }
+        }.start();
+    }
+
+    private void addReview(boolean done) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        if (done) {
+            editor.putInt("reviewTimes", 3);
+        } else {
+            editor.putInt("reviewTimes", sharedPreferences.getInt("reviewTimes", 0) + 1);
+        }
+
+        editor.apply();
+    }
+
+    private void openPlayStore() {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=com.codedead.deadline.deadpix"));
+            startActivity(intent);
+        } catch (Exception ignored) {
+
+        }
+    }
+
     private void openSite(String site) {
-        Uri uriUrl = Uri.parse(site);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-        startActivity(launchBrowser);
+        try {
+            Uri uriUrl = Uri.parse(site);
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
+        } catch (Exception ignored) {
+
+        }
     }
 
     @Override
@@ -185,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.nav_fixer) {
