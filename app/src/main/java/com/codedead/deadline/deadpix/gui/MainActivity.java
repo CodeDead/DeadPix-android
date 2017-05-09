@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             btnWebsite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openCodeDead();
+                    openSite("http://codedead.com/");
                 }
             });
 
@@ -106,16 +107,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void content_about() {
         Button btnWebsite = (Button) findViewById(R.id.BtnWebsiteAbout);
+        ImageButton btnFacebook = (ImageButton) findViewById(R.id.BtnFacebook);
+        ImageButton btnTwitter = (ImageButton) findViewById(R.id.BtnTwitter);
+
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCodeDead();
+                openSite("http://codedead.com/");
+            }
+        });
+
+        btnWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSite("http://codedead.com/");
+            }
+        });
+
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSite("https://facebook.com/deadlinecodedead");
+            }
+        });
+
+        btnTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSite("https://twitter.com/C0DEDEAD");
             }
         });
     }
 
-    private void openCodeDead() {
-        Uri uriUrl = Uri.parse("http://codedead.com/");
+    private void openSite(String site) {
+        Uri uriUrl = Uri.parse(site);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
