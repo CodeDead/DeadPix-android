@@ -19,13 +19,13 @@
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_red"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/red"
+                app:backgroundTint="@color/red"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_green"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/green"
+                app:backgroundTint="@color/green"
                 app:fabSize="normal" />
         </TableRow>
 
@@ -34,13 +34,13 @@
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_blue"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue"
+                app:backgroundTint="@color/blue"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_yellow"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/yellow"
+                app:backgroundTint="@color/yellow"
                 app:fabSize="normal" />
         </TableRow>
 
@@ -49,13 +49,13 @@
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_white"
                 android:layout_margin="5dp"
-                android:backgroundTint="@android:color/white"
+                app:backgroundTint="@android:color/white"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_black"
                 android:layout_margin="5dp"
-                android:backgroundTint="@android:color/black"
+                app:backgroundTint="@android:color/black"
                 app:fabSize="normal" />
         </TableRow>
 
