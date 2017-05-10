@@ -232,12 +232,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
-        sbDelay.setProgress(sharedPreferences.getInt("delay", 1));
+        sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSettings(0, 1);
+                saveSettings(0, 100);
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
                 Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
@@ -277,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setTitle(R.string.alert_review_title)
                         .setText(R.string.alert_review_text)
                         .setIcon(R.drawable.ic_rate_review)
+                        .setDuration(10000)
                         .setBackgroundColor(R.color.colorAccent)
                         .setOnClickListener(new View.OnClickListener() {
                             @Override

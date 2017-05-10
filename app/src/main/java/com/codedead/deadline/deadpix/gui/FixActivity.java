@@ -19,7 +19,7 @@ import java.util.Random;
 public class FixActivity extends AppCompatActivity {
     private boolean fixCancelled;
     private FrameLayout frameLayout;
-    private int fixDelay = 1;
+    private int fixDelay = 100;
 
     private static final Random rnd = new Random();
     private static final boolean AUTO_HIDE = true;
@@ -92,7 +92,7 @@ public class FixActivity extends AppCompatActivity {
         String color;
         if (getIntent() != null) {
 
-            fixDelay = getIntent().getIntExtra("delay", 1);
+            fixDelay = getIntent().getIntExtra("delay", 100);
 
             if (getIntent().getStringExtra("color") != null) {
                 color = getIntent().getStringExtra("color");
