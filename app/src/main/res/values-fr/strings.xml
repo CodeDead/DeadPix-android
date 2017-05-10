@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hint_delay_in_milliseconds">Retard en millisecondes</string>
+    <string name="alert_review_text">Pensez à laisser un commentaire si vous aimez cette application!</string>
+    <string name="alert_review_title">Revue</string>
+    <string name="btn_support">Soutien</string>
+    <string name="btn_website">Site web</string>
+    <string name="button_close_fix">Fermer</string>
+    <string name="button_fix">Réparer</string>
+    <string name="button_reset">Réinitialiser</string>
+    <string name="button_save">Sauvegarder</string>
+    <string name="nav_about">A propos</string>
+    <string name="nav_help">Aide</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_pixel_fixer">Fixateur de pixels</string>
+    <string name="nav_settings">Paramètres</string>
+    <string name="nav_tools">Outils</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="text_delay">Retard:</string>
+    <string name="text_interface">Interface</string>
+    <string name="text_language">Langue:</string>
+    <string name="text_send_mail">Envoyez-nous un e-mail</string>
+    <string name="toast_back_again">Appuyez à nouveau pour sortir</string>
+    <string name="toast_settings_saved">Tous les réglages ont été sauvegardés!</string>
+    <string name="toast_settins_reset">Tous les réglages ont été réinitialisés!</string>
+    <string name="text_help">Appuyez sur n\'importe lequel des boutons colorés de votre écran à l\'aide du fixateur de pixels pour essayer de localiser un pixel mort.\nAppuyez sur le bouton \'Réparer\' pour démarrer l\'utilitaire de fixation de pixel.\n\nNous vous recommandons de laisser DeadPix pendant au moins 30 minutes.\nSi vous avez besoin d\'un support supplémentaire, vous pouvez visiter notre site web ou nous envoyer un e-mail.</string>
+    <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\n\nCopyright © CodeDead 2017</string>
+</resources>

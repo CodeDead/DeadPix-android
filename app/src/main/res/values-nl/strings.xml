@@ -25,5 +25,5 @@
     <string name="toast_settins_reset">Alle instellingen zijn hersteld!</string>
     <string name="text_help">Druk op een gekleurde ronde knop om een dode pixel op je scherm te zoeken met behulp van de pixel fixer.\nDruk op de \'Herstel\' knop om de pixel fixer te starten.\n\nWe raden aan om DeadPix minstens 30 minuten aan te laten.\nAls u hulp of ondersteuning nodig heeft kunt u steeds onze website bezoeken of ons een e-mail sturen.</string>
     <string name="text_about">DeadPix werd gemaakt door DeadLine. Deze app werd ontworpen om u te helpen met dode pixels op te lossen.\nWe garanderen niet dat DeadPix uw probleem kan oplossen. Deze app werd u geleverd zonder enige garanties.\n\nAlle afbeeldingen zijn gebruikt met dank aan Google.\n\nCopyright © CodeDead 2017</string>
-    <string name="hint_delay_in_milliseconds">Vertraging in milliseconden:</string>
+    <string name="hint_delay_in_milliseconds">Vertraging in milliseconden</string>
 </resources>
