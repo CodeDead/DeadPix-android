@@ -232,7 +232,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
-        edtDelay.setText("" + sharedPreferences.getInt("delay", 1));
+        String delayText = "" + sharedPreferences.getInt("delay", 1);
+        edtDelay.setText(delayText);
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
