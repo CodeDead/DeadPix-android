@@ -20,8 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void content_settings() {
         final Spinner spnLanguage = (Spinner) findViewById(R.id.SpnLanguages);
-        final EditText edtDelay = (EditText) findViewById(R.id.EdtDelay);
+        final SeekBar sbDelay = (SeekBar) findViewById(R.id.SbDelay);
         Button btnReset = (Button) findViewById(R.id.BtnReset);
         Button btnSave = (Button) findViewById(R.id.BtnSave);
 
@@ -232,8 +232,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
-        String delayText = "" + sharedPreferences.getInt("delay", 1);
-        edtDelay.setText(delayText);
+        sbDelay.setProgress(sharedPreferences.getInt("delay", 1));
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -249,12 +248,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int delay;
-                try {
-                    delay = Integer.parseInt(edtDelay.getText().toString());
-                } catch (Exception ignored) {
-                    delay = 1;
-                }
+                int delay = sbDelay.getProgress();
+                if (delay == 0) delay = 1;
+
                 saveSettings(spnLanguage.getSelectedItemPosition(), delay);
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
