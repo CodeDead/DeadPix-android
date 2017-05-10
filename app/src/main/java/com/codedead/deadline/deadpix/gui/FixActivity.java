@@ -1,6 +1,9 @@
 package com.codedead.deadline.deadpix.gui;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +16,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.codedead.deadline.deadpix.R;
+import com.codedead.deadline.deadpix.domain.LocaleHelper;
 
 import java.util.Random;
 
@@ -20,6 +24,7 @@ public class FixActivity extends AppCompatActivity {
     private boolean fixCancelled;
     private FrameLayout frameLayout;
     private int fixDelay = 100;
+    private SharedPreferences sharedPreferences;
 
     private static final Random rnd = new Random();
     private static final boolean AUTO_HIDE = true;
@@ -71,7 +76,22 @@ public class FixActivity extends AppCompatActivity {
     };
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleHelper.onAttach(getBaseContext());
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleHelper.onAttach(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
+        LocaleHelper.setLocale(this, sharedPreferences.getString("language", "en"));
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_fix);
