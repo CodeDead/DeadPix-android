@@ -8,7 +8,6 @@
     <string name="button_fix">Fix</string>
     <string name="button_reset">Zurücksetzen</string>
     <string name="button_save">Sparen</string>
-    <string name="hint_delay_in_milliseconds">Zeitverzögerung in Millisekunden</string>
     <string name="nav_about">Über</string>
     <string name="nav_help">Hilfe</string>
     <string name="nav_info">Info</string>

@@ -30,7 +30,6 @@
     <string name="toast_settins_reset">All settings have been reset!</string>
     <string name="toast_settings_saved">All settings have been saved!</string>
     <string name="text_delay">Delay:</string>
-    <string name="hint_delay_in_milliseconds">Delay in milliseconds</string>
     <string name="button_fix">Fix</string>
     <string name="descr_facebook_logo" translatable="false">Facebook logo</string>
     <string name="descr_twitter_logo" translatable="false">Twitter logo</string>
