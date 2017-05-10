@@ -1,70 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="false"
-            android:layout_margin="5dp"
-            app:srcCompat="@mipmap/ic_launcher_round"
-            android:contentDescription="@string/hint_launcher_icon" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textAlignment="center"
-            android:text="@string/text_about"
-            android:textSize="16sp" />
+        android:layout_centerVertical="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
             android:gravity="center">
 
-            <ImageButton
-                android:id="@+id/BtnFacebook"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_facebook_icon"
-                android:contentDescription="@string/descr_facebook_logo" />
+                android:adjustViewBounds="false"
+                android:layout_margin="5dp"
+                app:srcCompat="@mipmap/ic_launcher_round"
+                android:contentDescription="@string/hint_launcher_icon" />
 
-            <ImageButton
-                android:id="@+id/BtnTwitter"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_twitter_icon"
-                android:contentDescription="@string/descr_twitter_logo" />
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="@string/text_about"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/BtnFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_facebook_icon"
+                    android:contentDescription="@string/descr_facebook_logo" />
+
+                <ImageButton
+                    android:id="@+id/BtnTwitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_twitter_icon"
+                    android:contentDescription="@string/descr_twitter_logo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/BtnWebsiteAbout"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_website" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+    </ScrollView>
 
-            <Button
-                android:id="@+id/BtnWebsiteAbout"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_website" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>
