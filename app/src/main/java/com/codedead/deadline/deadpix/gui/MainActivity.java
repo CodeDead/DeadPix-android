@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -87,6 +88,65 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FloatingActionButton fabWhite = (FloatingActionButton) findViewById(R.id.fab_white);
         FloatingActionButton fabBlack = (FloatingActionButton) findViewById(R.id.fab_black);
         Button btnFix = (Button) findViewById(R.id.BtnFix);
+
+        final Intent intent = new Intent(this, FixActivity.class);
+
+        fabRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "red");
+                startActivity(intent);
+            }
+        });
+
+        fabGreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "green");
+                startActivity(intent);
+            }
+        });
+
+        fabBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "blue");
+                startActivity(intent);
+            }
+        });
+
+        fabYellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "yellow");
+                startActivity(intent);
+            }
+        });
+
+        fabWhite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "white");
+                startActivity(intent);
+            }
+        });
+
+        fabBlack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "black");
+                startActivity(intent);
+            }
+        });
+
+        btnFix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "fix");
+                intent.putExtra("delay", sharedPreferences.getInt("delay", 1));
+                startActivity(intent);
+            }
+        });
     }
 
     private void content_help() {
@@ -150,20 +210,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void content_settings() {
         final Spinner spnLanguage = (Spinner) findViewById(R.id.SpnLanguages);
+        final EditText edtDelay = (EditText) findViewById(R.id.EdtDelay);
         Button btnReset = (Button) findViewById(R.id.BtnReset);
         Button btnSave = (Button) findViewById(R.id.BtnSave);
+
+        String lang = sharedPreferences.getString("language", "en");
+
+        switch (lang) {
+            default:
+            case "en":
+                spnLanguage.setSelection(0);
+                break;
+            case "nl":
+                spnLanguage.setSelection(1);
+                break;
+            case "fr":
+                spnLanguage.setSelection(2);
+                break;
+            case "de":
+                spnLanguage.setSelection(3);
+                break;
+        }
+
+        edtDelay.setText("" + sharedPreferences.getInt("delay", 1));
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSettings(0);
+                saveSettings(0, 1);
+
+                Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+                Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
+                recreate();
             }
         });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSettings(spnLanguage.getSelectedItemPosition());
+                int delay;
+                try {
+                    delay = Integer.parseInt(edtDelay.getText().toString());
+                } catch (Exception ignored) {
+                    delay = 1;
+                }
+                saveSettings(spnLanguage.getSelectedItemPosition(), delay);
+
+                Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+                Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
+                recreate();
             }
         });
     }
@@ -199,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }.start();
     }
 
-    private void saveSettings(int language) {
+    private void saveSettings(int language, int delay) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String lang;
@@ -220,6 +315,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         editor.putString("language", lang);
+        editor.putInt("delay", delay);
+
         editor.apply();
     }
 

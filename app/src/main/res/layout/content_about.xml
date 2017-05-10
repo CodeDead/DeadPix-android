@@ -37,13 +37,15 @@
                 android:id="@+id/BtnFacebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_facebook_icon" />
+                app:srcCompat="@drawable/ic_facebook_icon"
+                android:contentDescription="@string/descr_facebook_logo" />
 
             <ImageButton
                 android:id="@+id/BtnTwitter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_twitter_icon" />
+                app:srcCompat="@drawable/ic_twitter_icon"
+                android:contentDescription="@string/descr_twitter_logo" />
 
         </LinearLayout>
 

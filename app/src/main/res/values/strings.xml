@@ -26,11 +26,20 @@
     <string name="text_language">Language:</string>
     <string name="button_reset">Reset</string>
     <string name="button_save">Save</string>
+    <string name="button_close_fix">Close</string>
+    <string name="toast_settins_reset">All settings have been reset!</string>
+    <string name="toast_settings_saved">All settings have been saved!</string>
+    <string name="text_delay">Delay:</string>
+    <string name="hint_delay_in_milliseconds">Delay in milliseconds</string>
+    <string name="button_fix">Fix</string>
+    <string name="descr_facebook_logo">Facebook logo</string>
+    <string name="descr_twitter_logo">Twitter logo</string>
 
     <string-array name="array_languages" translatable="false">
         <item>English</item>
         <item>Nederlands</item>
-        <item>Frans</item>
+        <item>Français</item>
         <item>Deutsch</item>
     </string-array>
+
 </resources>
