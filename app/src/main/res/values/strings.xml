@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">DeadPix</string>
-    <string name="preferences_file_key">deadpixsettings</string>
+    <string name="app_name" translatable="false">DeadPix</string>
+    <string name="preferences_file_key" translatable="false">deadpixsettings</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -17,9 +17,20 @@
     <string name="text_about">DeadPix was created by DeadLine. This app was designed to help you out with dead pixels.\nWe do not guarantee that DeadPix will fix your screen issues. This app is provided as-is.\n\nAll images were provided by Google.\n\nCopyright © CodeDead 2017</string>
     <string name="btn_website">Website</string>
     <string name="btn_support">Support</string>
-    <string name="hint_help_image">Help image</string>
-    <string name="hint_launcher_icon">Launcher icon</string>
+    <string name="hint_help_image" translatable="false">Help image</string>
+    <string name="hint_launcher_icon" translatable="false">Launcher icon</string>
 
     <string name="alert_review_title">Review</string>
     <string name="alert_review_text">Consider leaving a review if you like this app!</string>
+    <string name="text_interface">Interface</string>
+    <string name="text_language">Language:</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_save">Save</string>
+
+    <string-array name="array_languages" translatable="false">
+        <item>English</item>
+        <item>Nederlands</item>
+        <item>Frans</item>
+        <item>Deutsch</item>
+    </string-array>
 </resources>

@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         content_fixer();
         content_help();
         content_about();
+        content_settings();
 
         content_alerts();
     }
@@ -146,6 +148,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    private void content_settings() {
+        final Spinner spnLanguage = (Spinner) findViewById(R.id.SpnLanguages);
+        Button btnReset = (Button) findViewById(R.id.BtnReset);
+        Button btnSave = (Button) findViewById(R.id.BtnSave);
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveSettings(0);
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveSettings(spnLanguage.getSelectedItemPosition());
+            }
+        });
+    }
+
     private void content_alerts() {
         if (sharedPreferences.getInt("reviewTimes", 0) >= 2) return;
 
@@ -175,6 +197,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 addReview(false);
             }
         }.start();
+    }
+
+    private void saveSettings(int language) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String lang;
+        switch(language) {
+            default:
+            case 0:
+                lang = "en";
+                break;
+            case 1:
+                lang = "nl";
+                break;
+            case 2:
+                lang = "fr";
+                break;
+            case 3:
+                lang = "de";
+                break;
+        }
+
+        editor.putString("language", lang);
+        editor.apply();
     }
 
     private void addReview(boolean done) {
