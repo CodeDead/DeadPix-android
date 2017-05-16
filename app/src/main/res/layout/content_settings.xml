@@ -75,7 +75,7 @@
                     android:id="@+id/SbDelay"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:max="3000" />
+                    android:max="1500" />
 
             </LinearLayout>
 
