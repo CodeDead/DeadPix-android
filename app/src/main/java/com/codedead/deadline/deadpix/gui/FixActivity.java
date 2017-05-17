@@ -24,11 +24,13 @@ public class FixActivity extends AppCompatActivity {
     private boolean fixCancelled;
     private FrameLayout frameLayout;
     private int fixDelay = 100;
-    private SharedPreferences sharedPreferences;
+
+    private boolean isFixing;
+    private static int doublePressDelay = 500;
+    private long lastPressTime;
 
     private static final Random rnd = new Random();
-    private static final boolean AUTO_HIDE = true;
-    private static final int AUTO_HIDE_DELAY_MILLIS = 2000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 5000;
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -64,10 +66,6 @@ public class FixActivity extends AppCompatActivity {
     private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (AUTO_HIDE) {
-                delayedHide(AUTO_HIDE_DELAY_MILLIS);
-            }
-
             fixCancelled = true;
             finish();
 
@@ -88,8 +86,7 @@ public class FixActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
         LocaleHelper.setLocale(this, sharedPreferences.getString("language", "en"));
 
         super.onCreate(savedInstanceState);
@@ -103,7 +100,20 @@ public class FixActivity extends AppCompatActivity {
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggle();
+                if (isFixing) {
+                    toggle();
+                    return;
+                }
+
+                long pressTime = System.currentTimeMillis();
+
+                if (pressTime - lastPressTime > doublePressDelay) {
+                    int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                    frameLayout.setBackgroundColor(color);
+                } else {
+                    toggle();
+                }
+                lastPressTime = pressTime;
             }
         });
 
@@ -145,6 +155,8 @@ public class FixActivity extends AppCompatActivity {
     }
 
     private void fix() {
+        isFixing = true;
+
         new CountDownTimer(fixDelay, 1000) {
 
             @Override
@@ -165,7 +177,7 @@ public class FixActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        delayedHide(100);
+        delayedHide(300);
     }
 
     private void toggle() {
@@ -173,6 +185,7 @@ public class FixActivity extends AppCompatActivity {
             hide();
         } else {
             show();
+            delayedHide(AUTO_HIDE_DELAY_MILLIS);
         }
     }
 
