@@ -1,6 +1,7 @@
 package com.codedead.deadline.deadpix.gui;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,6 +16,7 @@ import android.support.v4.app.ShareCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -28,7 +30,6 @@ import android.widget.ViewFlipper;
 
 import com.codedead.deadline.deadpix.R;
 import com.codedead.deadline.deadpix.domain.LocaleHelper;
-import com.tapadoo.alerter.Alerter;
 
 import java.util.Random;
 
@@ -273,21 +274,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onFinish() {
-                Alerter.create(MainActivity.this)
-                        .setTitle(R.string.alert_review_title)
-                        .setText(R.string.alert_review_text)
-                        .setIcon(R.drawable.ic_rate_review)
-                        .setDuration(10000)
-                        .setBackgroundColor(R.color.colorAccent)
-                        .setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                addReview(true);
-                                openPlayStore();
-                            }
-                        })
-                        .show();
-                addReview(false);
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                builder1.setTitle(R.string.alert_review_title);
+                builder1.setMessage(R.string.alert_review_text);
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+
+                        addReview(true);
+                        openPlayStore();
+                    }
+                });
+
+                builder1.setNegativeButton(R.string.alert_review_never, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        addReview(true);
+                    }
+                });
+
+                builder1.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        addReview(false);
+                    }
+                });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }.start();
     }
@@ -296,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String lang;
-        switch(language) {
+        switch (language) {
             default:
             case 0:
                 lang = "en";

@@ -100,16 +100,13 @@ public class FixActivity extends AppCompatActivity {
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isFixing) {
-                    toggle();
-                    return;
-                }
-
                 long pressTime = System.currentTimeMillis();
 
                 if (pressTime - lastPressTime > doublePressDelay) {
-                    int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                    frameLayout.setBackgroundColor(color);
+                    if (!isFixing) {
+                        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                        frameLayout.setBackgroundColor(color);
+                    }
                 } else {
                     toggle();
                 }
