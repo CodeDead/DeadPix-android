@@ -13,8 +13,8 @@
     <string name="nav_pixel_fixer">Pixel fixer</string>
     <string name="nav_info">Info</string>
     <string name="nav_tools">Tools</string>
-    <string name="text_help">Press any of the colored buttons on your screen using the pixel fixer to try and locate a dead pixel.\nPress the \'Fix\' button in order to start the pixel fixer utility.\n\nWe recommend leaving DeadPix on for at least 30 minutes.\nIf you need any additional support, you can visit our website or send us an e-mail.</string>
-    <string name="text_about">DeadPix was created by DeadLine. This app was designed to help you out with dead pixels.\nWe do not guarantee that DeadPix will fix your screen issues. This app is provided as-is.\n\nAll images were provided by Google.\n\nCopyright © CodeDead 2017</string>
+    <string name="text_help">Press any of the colored buttons on your screen using the pixel fixer to try and locate a dead or stuck pixel.\nPress the \'Fix\' button in order to start the pixel fixer utility.\n\nWe recommend leaving DeadPix on for at least 30 minutes.\nIf you need any additional support, you can visit our website or send us an e-mail.</string>
+    <string name="text_about">DeadPix was created by DeadLine. This app was designed to help you out with dead or stuck pixels.\nWe do not guarantee that DeadPix will fix your screen issues. This app is provided as-is.\n\nAll images were provided by Google.\n\nCopyright © CodeDead 2017</string>
     <string name="btn_website">Website</string>
     <string name="btn_support">Support</string>
     <string name="hint_help_image" translatable="false">Help image</string>
