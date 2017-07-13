@@ -7,8 +7,8 @@ android {
         applicationId "com.codedead.deadline.deadpix"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 7
-        versionName '1.4'
+        versionCode 8
+        versionName '1.4.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
