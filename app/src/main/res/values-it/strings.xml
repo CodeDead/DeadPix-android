@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navigation_drawer_open">Apri il cassetto di navigazione</string>
+    <string name="navigation_drawer_close">Chiudi il cassetto di navigazione</string>
+    <string name="toast_back_again">Premere nuovamente \'BACK\' per uscire da</string>
+    <string name="text_send_mail">Inviaci una e-mail</string>
+
+    <string name="nav_help">Aiuto</string>
+    <string name="nav_about">Informazioni su</string>
+    <string name="nav_settings">Impostazioni</string>
+    <string name="nav_pixel_fixer">Pixel fixer</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_tools">Strumenti</string>
+    <string name="text_help">Premere uno dei pulsanti colorati sullo schermo utilizzando il fixer di pixel per cercare di individuare un pixel morto o bloccato.\nPremere il pulsante \'Fix\' per avviare l\'utilità di fissaggio dei pixel.\n\nPer consigliamo di lasciare DeadPix attivo per almeno 30 minuti.\nSe hai bisogno di un supporto aggiuntivo, puoi visitare il nostro sito web o inviarci un\'e-mail.</string>
+    <string name="text_about">DeadPix è stato creato da DeadLine. Questa applicazione è stata progettata per aiutarti con pixel morti o bloccati.\nNon garantiamo che DeadPix risolverà i problemi relativi al tuo schermo. Questa applicazione viene fornita come-è.\n\nTutte le immagini sono state fornite da Google.\n\nCopyright © CodeDead 2017</string>
+    <string name="btn_website">Sito web</string>
+    <string name="btn_support">Supporto</string>
+
+    <string name="alert_review_title">Recensione</string>
+    <string name="alert_review_text">Considera di lasciare una recensione se ti piace questa applicazione!</string>
+    <string name="text_interface">Interfaccia</string>
+    <string name="text_language">Lingua:</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_save">Salva</string>
+    <string name="button_close_fix">Chiudi</string>
+    <string name="toast_settins_reset">Tutte le impostazioni sono state ripristinate!</string>
+    <string name="toast_settings_saved">Tutte le impostazioni sono state salvate!</string>
+    <string name="text_delay">Ritardo:</string>
+    <string name="button_fix">Fix</string>
+    <string name="alert_review_never">Mai</string>
+
+</resources>
