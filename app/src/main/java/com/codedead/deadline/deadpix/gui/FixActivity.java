@@ -26,7 +26,7 @@ public class FixActivity extends AppCompatActivity {
     private int fixDelay = 100;
 
     private boolean isFixing;
-    private static int doublePressDelay = 500;
+    private static final int doublePressDelay = 500;
     private long lastPressTime;
 
     private static final Random rnd = new Random();
@@ -64,6 +64,7 @@ public class FixActivity extends AppCompatActivity {
         }
     };
     private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             fixCancelled = true;
@@ -95,7 +96,7 @@ public class FixActivity extends AppCompatActivity {
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        frameLayout = (FrameLayout) findViewById(R.id.frame_fix);
+        frameLayout = findViewById(R.id.frame_fix);
 
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override

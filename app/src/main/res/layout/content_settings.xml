@@ -1,108 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/text_interface"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold">
+
+        </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:gravity="center">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/text_interface"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold">
+                android:layout_margin="2dp"
+                android:text="@string/text_language"
+                android:textSize="16sp" />
 
-            </TextView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <Spinner
+                android:id="@+id/SpnLanguages"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:text="@string/text_language"
-                    android:textSize="16sp" />
-
-                <Spinner
-                    android:id="@+id/SpnLanguages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:entries="@array/array_languages" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/nav_pixel_fixer"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_delay"
-                    android:textSize="16sp" />
-
-                <SeekBar
-                    android:id="@+id/SbDelay"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:max="1500" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/BtnReset"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_reset" />
-
-                <Button
-                    android:id="@+id/BtnSave"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_save" />
-
-            </LinearLayout>
+                android:layout_margin="2dp"
+                android:entries="@array/array_languages" />
 
         </LinearLayout>
 
-    </ScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/nav_pixel_fixer"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold">
 
-</RelativeLayout>
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_delay"
+                android:textSize="16sp" />
+
+            <SeekBar
+                android:id="@+id/SbDelay"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:max="1500" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/BtnReset"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_reset" />
+
+            <Button
+                android:id="@+id/BtnSave"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_save" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

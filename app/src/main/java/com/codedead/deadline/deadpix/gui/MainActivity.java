@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private boolean doubleBackToExitPressedOnce;
 
     private ViewFlipper viewFlipper;
+    private boolean paused;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +48,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        viewFlipper = (ViewFlipper) findViewById(R.id.ViewFlipper_Main);
+        viewFlipper = findViewById(R.id.ViewFlipper_Main);
 
         if (savedInstanceState != null) {
             int flipperPosition = savedInstanceState.getInt("TAB_NUMBER");
@@ -82,13 +83,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_fixer() {
-        FloatingActionButton fabRed = (FloatingActionButton) findViewById(R.id.fab_red);
-        FloatingActionButton fabGreen = (FloatingActionButton) findViewById(R.id.fab_green);
-        FloatingActionButton fabBlue = (FloatingActionButton) findViewById(R.id.fab_blue);
-        FloatingActionButton fabYellow = (FloatingActionButton) findViewById(R.id.fab_yellow);
-        FloatingActionButton fabWhite = (FloatingActionButton) findViewById(R.id.fab_white);
-        FloatingActionButton fabBlack = (FloatingActionButton) findViewById(R.id.fab_black);
-        Button btnFix = (Button) findViewById(R.id.BtnFix);
+        FloatingActionButton fabRed = findViewById(R.id.fab_red);
+        FloatingActionButton fabGreen = findViewById(R.id.fab_green);
+        FloatingActionButton fabBlue = findViewById(R.id.fab_blue);
+        FloatingActionButton fabYellow = findViewById(R.id.fab_yellow);
+        FloatingActionButton fabWhite = findViewById(R.id.fab_white);
+        FloatingActionButton fabBlack = findViewById(R.id.fab_black);
+        Button btnFix = findViewById(R.id.BtnFix);
 
         final Intent intent = new Intent(this, FixActivity.class);
 
@@ -151,8 +152,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_help() {
-        Button btnWebsite = (Button) findViewById(R.id.BtnWebsite);
-        Button btnSupport = (Button) findViewById(R.id.BtnMail);
+        Button btnWebsite = findViewById(R.id.BtnWebsite);
+        Button btnSupport = findViewById(R.id.BtnMail);
 
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,9 +177,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_about() {
-        Button btnWebsite = (Button) findViewById(R.id.BtnWebsiteAbout);
-        ImageButton btnFacebook = (ImageButton) findViewById(R.id.BtnFacebook);
-        ImageButton btnTwitter = (ImageButton) findViewById(R.id.BtnTwitter);
+        Button btnWebsite = findViewById(R.id.BtnWebsiteAbout);
+        ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
+        ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
 
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,10 +211,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_settings() {
-        final Spinner spnLanguage = (Spinner) findViewById(R.id.SpnLanguages);
-        final SeekBar sbDelay = (SeekBar) findViewById(R.id.SbDelay);
-        Button btnReset = (Button) findViewById(R.id.BtnReset);
-        Button btnSave = (Button) findViewById(R.id.BtnSave);
+        final Spinner spnLanguage = findViewById(R.id.SpnLanguages);
+        final SeekBar sbDelay = findViewById(R.id.SbDelay);
+        Button btnReset = findViewById(R.id.BtnReset);
+        Button btnSave = findViewById(R.id.BtnSave);
 
         String lang = sharedPreferences.getString("language", "en");
 
@@ -307,11 +308,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 });
 
                 AlertDialog alert11 = builder1.create();
-                if (!isFinishing()) {
+                if (!isFinishing() &&!paused) {
                     alert11.show();
                 }
             }
         }.start();
+    }
+
+    @Override
+    protected void onPause() {
+        paused = true;
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        paused = false;
+        super.onResume();
     }
 
     private void saveSettings(int language, int delay) {
@@ -378,6 +391,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("TAB_NUMBER", viewFlipper.getDisplayedChild());
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
@@ -393,7 +407,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -428,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             viewFlipper.setDisplayedChild(3);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
