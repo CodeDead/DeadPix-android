@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
         } catch (Exception ignored) {
-
+            ignored.printStackTrace();
         }
     }
 
