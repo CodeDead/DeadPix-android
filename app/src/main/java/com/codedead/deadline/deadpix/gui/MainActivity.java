@@ -310,6 +310,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 AlertDialog alert11 = builder1.create();
                 if (!isFinishing() &&!paused) {
                     alert11.show();
+                } else {
+                    cancel();
+                    start();
                 }
             }
         }.start();
