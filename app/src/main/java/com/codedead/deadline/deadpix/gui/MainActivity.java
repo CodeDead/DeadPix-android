@@ -435,14 +435,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_fixer) {
-            viewFlipper.setDisplayedChild(0);
-        } else if (id == R.id.nav_help) {
-            viewFlipper.setDisplayedChild(1);
-        } else if (id == R.id.nav_about) {
-            viewFlipper.setDisplayedChild(2);
-        } else if (id == R.id.nav_settings) {
-            viewFlipper.setDisplayedChild(3);
+        switch (id) {
+            case R.id.nav_fixer:
+                viewFlipper.setDisplayedChild(0);
+                break;
+            case R.id.nav_help:
+                viewFlipper.setDisplayedChild(1);
+                break;
+            case R.id.nav_about:
+                viewFlipper.setDisplayedChild(2);
+                break;
+            case R.id.nav_settings:
+                viewFlipper.setDisplayedChild(3);
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
