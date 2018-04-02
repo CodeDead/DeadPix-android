@@ -15,9 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_margin="5dp"
-            android:adjustViewBounds="false"
             android:contentDescription="@string/hint_help_image"
-            android:cropToPadding="false"
             app:srcCompat="@drawable/ic_help_black_24dp" />
 
         <TextView

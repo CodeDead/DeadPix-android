@@ -14,7 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_margin="5dp"
-            android:adjustViewBounds="false"
             android:contentDescription="@string/hint_launcher_icon"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
