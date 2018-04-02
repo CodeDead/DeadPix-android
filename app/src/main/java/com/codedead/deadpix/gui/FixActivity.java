@@ -144,6 +144,15 @@ public class FixActivity extends AppCompatActivity {
                     case "black":
                         frameLayout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black));
                         break;
+                    case "orange":
+                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.orange));
+                        break;
+                    case "darkblue":
+                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.darkblue));
+                        break;
+                    case "purple":
+                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.purple));
+                        break;
                     case "fix":
                         fix();
                         break;

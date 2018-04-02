@@ -89,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FloatingActionButton fabYellow = findViewById(R.id.fab_yellow);
         FloatingActionButton fabWhite = findViewById(R.id.fab_white);
         FloatingActionButton fabBlack = findViewById(R.id.fab_black);
+        FloatingActionButton fabOrange = findViewById(R.id.fab_orange);
+        FloatingActionButton fabDarkBlue = findViewById(R.id.fab_darkblue);
+        FloatingActionButton fabPurple = findViewById(R.id.fab_purple);
+
         Button btnFix = findViewById(R.id.BtnFix);
 
         final Intent intent = new Intent(this, FixActivity.class);
@@ -141,6 +145,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        fabOrange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "orange");
+                startActivity(intent);
+            }
+        });
+
+        fabDarkBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "darkblue");
+                startActivity(intent);
+            }
+        });
+
+        fabPurple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("color", "purple");
+                startActivity(intent);
+            }
+        });
+
         btnFix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,13 +208,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Button btnWebsite = findViewById(R.id.BtnWebsiteAbout);
         ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
         ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
-
-        btnWebsite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSite("https://codedead.com/");
-            }
-        });
 
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override

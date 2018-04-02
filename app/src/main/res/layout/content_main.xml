@@ -29,6 +29,15 @@
                 app:backgroundTint="@color/green"
                 app:elevation="0dp"
                 app:fabSize="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:backgroundTint="@android:color/holo_orange_dark"
+                app:elevation="0dp"
+                app:fabSize="normal" />
         </TableRow>
 
         <TableRow android:layout_margin="5dp">
@@ -44,6 +53,15 @@
                 android:id="@+id/fab_yellow"
                 android:layout_margin="5dp"
                 app:backgroundTint="@color/yellow"
+                app:elevation="0dp"
+                app:fabSize="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_darkblue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:backgroundTint="@color/darkblue"
                 app:elevation="0dp"
                 app:fabSize="normal" />
         </TableRow>
@@ -63,17 +81,29 @@
                 app:backgroundTint="@android:color/black"
                 app:elevation="0dp"
                 app:fabSize="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:backgroundTint="@color/purple"
+                app:elevation="0dp"
+                app:fabSize="normal" />
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/BtnFix"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_fix">
+
+            </Button>
         </TableRow>
 
     </TableLayout>
-
-    <Button
-        android:id="@+id/BtnFix"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_fix">
-
-    </Button>
 
 </LinearLayout>

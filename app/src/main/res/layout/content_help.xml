@@ -13,11 +13,12 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:layout_margin="5dp"
             android:adjustViewBounds="false"
             android:contentDescription="@string/hint_help_image"
-            app:srcCompat="@drawable/ic_menu_help" />
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/ic_help_black_24dp" />
 
         <TextView
             android:id="@+id/TxtHelp"
@@ -32,14 +33,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:gravity="center">
 
             <Button
                 android:id="@+id/BtnWebsite"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/btn_website" />
 
             <Button
@@ -47,7 +47,6 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/btn_support" />
         </LinearLayout>
 
