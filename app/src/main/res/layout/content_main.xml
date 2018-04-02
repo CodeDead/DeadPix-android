@@ -20,12 +20,14 @@
                 android:id="@+id/fab_red"
                 android:layout_margin="5dp"
                 app:backgroundTint="@color/red"
+                app:elevation="0dp"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_green"
                 android:layout_margin="5dp"
                 app:backgroundTint="@color/green"
+                app:elevation="0dp"
                 app:fabSize="normal" />
         </TableRow>
 
@@ -35,12 +37,14 @@
                 android:id="@+id/fab_blue"
                 android:layout_margin="5dp"
                 app:backgroundTint="@color/blue"
+                app:elevation="0dp"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_yellow"
                 android:layout_margin="5dp"
                 app:backgroundTint="@color/yellow"
+                app:elevation="0dp"
                 app:fabSize="normal" />
         </TableRow>
 
@@ -50,12 +54,14 @@
                 android:id="@+id/fab_white"
                 android:layout_margin="5dp"
                 app:backgroundTint="@android:color/white"
+                app:elevation="0dp"
                 app:fabSize="normal" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_black"
                 android:layout_margin="5dp"
                 app:backgroundTint="@android:color/black"
+                app:elevation="0dp"
                 app:fabSize="normal" />
         </TableRow>
 
