@@ -29,5 +29,6 @@
     <string name="text_delay">Ritardo:</string>
     <string name="button_fix">Fix</string>
     <string name="alert_review_never">Mai</string>
+    <string name="nav_donate">Donare</string>
 
 </resources>

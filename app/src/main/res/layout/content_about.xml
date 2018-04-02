@@ -33,6 +33,7 @@
 
             <ImageButton
                 android:id="@+id/BtnFacebook"
+                style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/descr_facebook_logo"
@@ -40,6 +41,7 @@
 
             <ImageButton
                 android:id="@+id/BtnTwitter"
+                style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/descr_twitter_logo"

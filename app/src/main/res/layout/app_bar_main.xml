@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codedead.deadpix.gui.MainActivity"
+    android:background="@color/lightgray"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout

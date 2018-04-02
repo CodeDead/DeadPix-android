@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.CountDownTimer;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -117,45 +116,17 @@ public class FixActivity extends AppCompatActivity {
 
         findViewById(R.id.BtnCloseFix).setOnTouchListener(mDelayHideTouchListener);
 
-        String color;
         if (getIntent() != null) {
 
             fixDelay = getIntent().getIntExtra("delay", 100);
 
-            if (getIntent().getStringExtra("color") != null) {
-                color = getIntent().getStringExtra("color");
+            if (getIntent().getIntExtra("color", -10) != -10) {
+                frameLayout.setBackgroundColor(getIntent().getIntExtra("color", 0));
+            }
 
-                switch (color) {
-                    case "red":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
-                        break;
-                    case "green":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
-                        break;
-                    case "blue":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
-                        break;
-                    case "yellow":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.yellow));
-                        break;
-                    case "white":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                        break;
-                    case "black":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.black));
-                        break;
-                    case "orange":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.orange));
-                        break;
-                    case "darkblue":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.darkblue));
-                        break;
-                    case "purple":
-                        frameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.purple));
-                        break;
-                    case "fix":
-                        fix();
-                        break;
+            if (getIntent().getStringExtra("action") != null) {
+                if (getIntent().getStringExtra("action").equals("fix")) {
+                    fix();
                 }
             }
         }

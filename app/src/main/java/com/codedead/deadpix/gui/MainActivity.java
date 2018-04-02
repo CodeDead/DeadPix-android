@@ -13,12 +13,15 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +85,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         content_alerts();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_donate:
+                openSite("https://codedead.com/?page_id=302");
+                break;
+        }
+        return true;
+    }
+
     private void content_fixer() {
         FloatingActionButton fabRed = findViewById(R.id.fab_red);
         FloatingActionButton fabGreen = findViewById(R.id.fab_green);
@@ -95,88 +115,84 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Button btnFix = findViewById(R.id.BtnFix);
 
-        final Intent intent = new Intent(this, FixActivity.class);
-
         fabRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "red");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.red));
             }
         });
 
         fabGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "green");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.green));
             }
         });
 
         fabBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "blue");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.blue));
             }
         });
 
         fabYellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "yellow");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.yellow));
             }
         });
 
         fabWhite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "white");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.white));
             }
         });
 
         fabBlack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "black");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.black));
             }
         });
 
         fabOrange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "orange");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.orange));
             }
         });
 
         fabDarkBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "darkblue");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.darkblue));
             }
         });
 
         fabPurple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "purple");
-                startActivity(intent);
+                openLocator(ContextCompat.getColor(MainActivity.this, R.color.purple));
             }
         });
 
         btnFix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("color", "fix");
+                Intent intent = new Intent(MainActivity.this, FixActivity.class);
+                intent.putExtra("action", "fix");
                 intent.putExtra("delay", sharedPreferences.getInt("delay", 1));
                 startActivity(intent);
             }
         });
+    }
+
+    private void openLocator(int color) {
+        Intent intent = new Intent(this, FixActivity.class);
+        intent.putExtra("color", color);
+        startActivity(intent);
     }
 
     private void content_help() {
