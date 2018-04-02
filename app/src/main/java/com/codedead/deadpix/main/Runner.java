@@ -1,10 +1,10 @@
-package com.codedead.deadline.deadpix.main;
+package com.codedead.deadpix.main;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.codedead.deadline.deadpix.domain.LocaleHelper;
+import com.codedead.deadpix.domain.LocaleHelper;
 
 public class Runner extends Application {
     @Override

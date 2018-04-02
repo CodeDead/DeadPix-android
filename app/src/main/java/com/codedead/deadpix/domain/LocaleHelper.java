@@ -1,4 +1,4 @@
-package com.codedead.deadline.deadpix.domain;
+package com.codedead.deadpix.domain;
 
 import android.annotation.TargetApi;
 import android.content.Context;

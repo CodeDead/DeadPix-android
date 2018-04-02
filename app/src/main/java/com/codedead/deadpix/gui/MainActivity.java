@@ -1,4 +1,4 @@
-package com.codedead.deadline.deadpix.gui;
+package com.codedead.deadpix.gui;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,8 +28,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.codedead.deadline.deadpix.R;
-import com.codedead.deadline.deadpix.domain.LocaleHelper;
+import com.codedead.deadpix.R;
+import com.codedead.deadpix.domain.LocaleHelper;
 
 import java.util.Random;
 
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSite("http://codedead.com/");
+                openSite("https://codedead.com/");
             }
         });
 
@@ -184,14 +184,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSite("http://codedead.com/");
+                openSite("https://codedead.com/");
             }
         });
 
         btnWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSite("http://codedead.com/");
+                openSite("https://codedead.com/");
             }
         });
 
@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void openPlayStore() {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("market://details?id=com.codedead.deadline.deadpix"));
+            intent.setData(Uri.parse("market://details?id=com.codedead.deadpix"));
             startActivity(intent);
         } catch (Exception ignored) {
 

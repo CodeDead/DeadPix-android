@@ -4,11 +4,11 @@ android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
-        applicationId "com.codedead.deadline.deadpix"
+        applicationId "com.codedead.deadpix"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 10
-        versionName '1.5'
+        versionCode 2
+        versionName '1.5.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }

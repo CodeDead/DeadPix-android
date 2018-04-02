@@ -1,4 +1,4 @@
-package com.codedead.deadline.deadpix.gui;
+package com.codedead.deadpix.gui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,8 +15,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.codedead.deadline.deadpix.R;
-import com.codedead.deadline.deadpix.domain.LocaleHelper;
+import com.codedead.deadpix.R;
+import com.codedead.deadpix.domain.LocaleHelper;
 
 import java.util.Random;
 

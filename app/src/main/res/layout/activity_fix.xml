@@ -7,7 +7,7 @@
     android:background="#0099cc"
     android:fitsSystemWindows="true"
     android:keepScreenOn="true"
-    tools:context="com.codedead.deadline.deadpix.gui.FixActivity">
+    tools:context="com.codedead.deadpix.gui.FixActivity">
 
     <LinearLayout
         android:id="@+id/fullscreen_content_controls"
