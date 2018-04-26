@@ -25,6 +25,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -250,6 +251,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void content_settings() {
         final Spinner spnLanguage = findViewById(R.id.SpnLanguages);
         final SeekBar sbDelay = findViewById(R.id.SbDelay);
+        final CheckBox chbFullBrightness = findViewById(R.id.ChbFullBrightness);
         Button btnReset = findViewById(R.id.BtnReset);
         Button btnSave = findViewById(R.id.BtnSave);
 
@@ -275,11 +277,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
+        chbFullBrightness.setChecked(sharedPreferences.getBoolean("fullBrightness", true));
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSettings(0, 100);
+                saveSettings(0, 100, true);
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
                 Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
@@ -293,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int delay = sbDelay.getProgress();
                 if (delay == 0) delay = 1;
 
-                saveSettings(spnLanguage.getSelectedItemPosition(), delay);
+                saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked());
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
                 Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
@@ -367,7 +370,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
     }
 
-    private void saveSettings(int language, int delay) {
+    private void saveSettings(int language, int delay, boolean fullBrightness) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String lang;
@@ -392,6 +395,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         editor.putString("language", lang);
         editor.putInt("delay", delay);
+        editor.putBoolean("fullBrightness", fullBrightness);
 
         editor.apply();
     }

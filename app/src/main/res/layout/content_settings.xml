@@ -57,6 +57,12 @@
                 android:max="1500" />
         </TableRow>
 
+        <TableRow android:gravity="center">
+            <CheckBox
+                android:id="@+id/ChbFullBrightness"
+                android:text="@string/string_full_brightness"/>
+        </TableRow>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

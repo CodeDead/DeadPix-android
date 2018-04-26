@@ -27,4 +27,5 @@
     <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts ou bloqués.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\n\nCopyright © CodeDead 2018</string>
     <string name="alert_review_never">Jamais</string>
     <string name="nav_donate">Faire un don</string>
+    <string name="string_full_brightness">Pleine luminosité</string>
 </resources>

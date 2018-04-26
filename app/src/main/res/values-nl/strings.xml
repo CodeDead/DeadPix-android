@@ -27,4 +27,5 @@
     <string name="text_about">DeadPix werd gemaakt door DeadLine. Deze app werd ontworpen om u te helpen met dode of vaste pixels op te lossen.\nWe garanderen niet dat DeadPix uw probleem kan oplossen. Deze app werd u geleverd zonder enige garanties.\n\nAlle afbeeldingen zijn gebruikt met dank aan Google.\n\nCopyright © CodeDead 2018</string>
     <string name="alert_review_never">Nooit</string>
     <string name="nav_donate">Doneer</string>
+    <string name="string_full_brightness">Volledige schermhelderheid</string>
 </resources>

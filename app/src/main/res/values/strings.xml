@@ -36,6 +36,7 @@
     <string name="alert_review_never">Never</string>
     <string name="content_codedead_logo" translatable="false">CodeDead Logo</string>
     <string name="nav_donate">Donate</string>
+    <string name="string_full_brightness">Full brightness</string>
 
     <string-array name="array_languages" translatable="false">
         <item>English</item>

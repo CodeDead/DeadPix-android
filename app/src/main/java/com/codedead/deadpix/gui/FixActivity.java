@@ -10,8 +10,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.codedead.deadpix.R;
@@ -93,6 +95,8 @@ public class FixActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_fix);
 
+        if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         frameLayout = findViewById(R.id.frame_fix);
@@ -129,6 +133,12 @@ public class FixActivity extends AppCompatActivity {
                     fix();
                 }
             }
+        }
+
+        if (sharedPreferences.getBoolean("fullBrightness", true)) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = 1.0f;
+            getWindow().setAttributes(lp);
         }
     }
 
@@ -192,5 +202,13 @@ public class FixActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 }
