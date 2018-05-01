@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void content_about() {
-        Button btnWebsite = findViewById(R.id.BtnWebsiteAbout);
+        ImageButton btnWebsite = findViewById(R.id.BtnWebsiteAbout);
         ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
         ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
 

@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.codedead.deadpix">
 
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
-
     <application
         android:name=".main.Runner"
         android:allowBackup="true"

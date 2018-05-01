@@ -47,19 +47,13 @@
                 android:contentDescription="@string/descr_twitter_logo"
                 app:srcCompat="@drawable/ic_twitter_icon" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
+            <ImageButton
                 android:id="@+id/BtnWebsiteAbout"
-                style="@style/Widget.AppCompat.Button.Colored"
+                style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_website" />
+                android:contentDescription="@string/descr_twitter_logo"
+                app:srcCompat="@drawable/ic_public" />
 
         </LinearLayout>
 
