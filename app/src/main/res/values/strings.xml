@@ -37,6 +37,7 @@
     <string name="content_codedead_logo" translatable="false">CodeDead Logo</string>
     <string name="nav_donate">Donate</string>
     <string name="string_full_brightness">Full brightness</string>
+    <string name="string_change_colours">Change colours on click</string>
 
     <string-array name="array_languages" translatable="false">
         <item>English</item>

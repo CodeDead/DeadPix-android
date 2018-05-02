@@ -252,6 +252,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final Spinner spnLanguage = findViewById(R.id.SpnLanguages);
         final SeekBar sbDelay = findViewById(R.id.SbDelay);
         final CheckBox chbFullBrightness = findViewById(R.id.ChbFullBrightness);
+        final CheckBox chbColourClick = findViewById(R.id.ChbChangeColours);
         Button btnReset = findViewById(R.id.BtnReset);
         Button btnSave = findViewById(R.id.BtnSave);
 
@@ -278,11 +279,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
         chbFullBrightness.setChecked(sharedPreferences.getBoolean("fullBrightness", true));
+        chbColourClick.setChecked(sharedPreferences.getBoolean("changeColours", true));
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSettings(0, 100, true);
+                saveSettings(0, 100, true, true);
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
                 Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
@@ -296,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int delay = sbDelay.getProgress();
                 if (delay == 0) delay = 1;
 
-                saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked());
+                saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked(), chbColourClick.isChecked());
 
                 Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
                 Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
@@ -370,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
     }
 
-    private void saveSettings(int language, int delay, boolean fullBrightness) {
+    private void saveSettings(int language, int delay, boolean fullBrightness, boolean changeColours) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String lang;
@@ -396,6 +398,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.putString("language", lang);
         editor.putInt("delay", delay);
         editor.putBoolean("fullBrightness", fullBrightness);
+        editor.putBoolean("changeColours", changeColours);
 
         editor.apply();
     }

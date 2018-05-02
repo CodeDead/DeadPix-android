@@ -88,7 +88,7 @@ public class FixActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
         LocaleHelper.setLocale(this, sharedPreferences.getString("language", "en"));
 
         super.onCreate(savedInstanceState);
@@ -107,7 +107,7 @@ public class FixActivity extends AppCompatActivity {
                 long pressTime = System.currentTimeMillis();
 
                 if (pressTime - lastPressTime > doublePressDelay) {
-                    if (!isFixing) {
+                    if (!isFixing && sharedPreferences.getBoolean("changeColours", true)) {
                         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                         frameLayout.setBackgroundColor(color);
                     }

@@ -28,4 +28,5 @@
     <string name="alert_review_never">Nooit</string>
     <string name="nav_donate">Doneer</string>
     <string name="string_full_brightness">Volledige helderheid</string>
+    <string name="string_change_colours">Verander van kleur bij klik</string>
 </resources>

@@ -52,12 +52,29 @@
 
         </TableLayout>
 
-        <CheckBox
-            android:id="@+id/ChbFullBrightness"
-            android:layout_width="wrap_content"
+        <TableLayout
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:text="@string/string_full_brightness" />
+            android:layout_width="wrap_content">
+
+            <TableRow>
+                <CheckBox
+                    android:id="@+id/ChbFullBrightness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="@string/string_full_brightness" />
+            </TableRow>
+
+            <TableRow>
+                <CheckBox
+                    android:id="@+id/ChbChangeColours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="@string/string_change_colours" />
+            </TableRow>
+
+        </TableLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

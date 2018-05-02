@@ -28,4 +28,5 @@
     <string name="alert_review_never">Nie</string>
     <string name="nav_donate">Spenden</string>
     <string name="string_full_brightness">Volle Helligkeit</string>
+    <string name="string_change_colours">Ändern Sie Farben auf Klick</string>
 </resources>

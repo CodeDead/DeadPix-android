@@ -31,5 +31,6 @@
     <string name="alert_review_never">Mai</string>
     <string name="nav_donate">Donare</string>
     <string name="string_full_brightness">Piena luminosità</string>
+    <string name="string_change_colours">Cambia i colori al clic</string>
 
 </resources>
