@@ -19,7 +19,7 @@
     <string name="text_delay">Vertraging:</string>
     <string name="text_interface">Interface</string>
     <string name="text_language">Taal:</string>
-    <string name="text_send_mail">Stuur ons een e-mail</string>
+    <string name="text_send_mail">Stuur ons een email</string>
     <string name="toast_back_again">Druk nogmaals op \'TERUG\' om te sluiten</string>
     <string name="toast_settings_saved">Alle instellingen zijn opgeslagen!</string>
     <string name="toast_settins_reset">Alle instellingen zijn hersteld!</string>

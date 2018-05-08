@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Abrir el cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
+    <string name="toast_back_again">Presiona el botón Atrás otra vez para salir</string>
+    <string name="text_send_mail">Envianos un email</string>
+    <string name="nav_help">Ayuda</string>
+    <string name="nav_about">Acerca de</string>
+    <string name="nav_settings">Configuraciones</string>
+    <string name="nav_pixel_fixer">Pixel fixer</string>
+    <string name="nav_info">Información</string>
+    <string name="nav_tools">Herramientas</string>
+    <string name="text_help">Presione cualquiera de los botones de colores en su pantalla con el fijador de píxeles para tratar de localizar un píxel muerto o atascado.\nPresione el botón \'Reparar\' para iniciar la utilidad de reparación de píxeles.\n\nRecomendamos dejar DeadPix encendido durante al menos 30 minutos.\nSi necesita ayuda adicional, puede visitar nuestro sitio web o enviarnos un correo electrónico.</string>
+    <string name="alert_review_title">Revisión</string>
+    <string name="alert_review_text">Considera dejar una crítica si te gusta esta aplicación.</string>
+    <string name="btn_support">Apoyo</string>
+    <string name="btn_website">Sitio web</string>
+    <string name="button_close_fix">Cerca</string>
+    <string name="button_fix">Fijar</string>
+    <string name="button_reset">Reiniciar</string>
+    <string name="button_save">Salvar</string>
+    <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\n\nCopyright © CodeDead 2018</string>
+    <string name="text_delay">Retrasar:</string>
+    <string name="text_interface">Interfaz</string>
+    <string name="text_language">Idioma:</string>
+    <string name="toast_settings_saved">¡Todos los ajustes han sido guardados!</string>
+    <string name="toast_settins_reset">¡Todas las configuraciones han sido reiniciadas!</string>
+    <string name="alert_review_never">Nunca</string>
+    <string name="nav_donate">Donar</string>
+    <string name="string_full_brightness">Brillo completo</string>
+    <string name="string_change_colours">Cambiar colores al hacer clic</string>
+</resources>

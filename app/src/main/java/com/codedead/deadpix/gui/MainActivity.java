@@ -275,6 +275,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case "it":
                 spnLanguage.setSelection(4);
                 break;
+            case "es":
+                spnLanguage.setSelection(5);
+                break;
         }
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
@@ -392,6 +395,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case 4:
                 lang = "it";
+                break;
+            case 5:
+                lang = "es";
                 break;
         }
 

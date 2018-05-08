@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Apri il cassetto di navigazione</string>
     <string name="navigation_drawer_close">Chiudi il cassetto di navigazione</string>
     <string name="toast_back_again">Premere nuovamente \'BACK\' per uscire da</string>
-    <string name="text_send_mail">Inviaci una e-mail</string>
+    <string name="text_send_mail">Inviaci una email</string>
 
     <string name="nav_help">Aiuto</string>
     <string name="nav_about">Informazioni su</string>
