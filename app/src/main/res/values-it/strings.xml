@@ -19,7 +19,6 @@
 
     <string name="alert_review_title">Recensione</string>
     <string name="alert_review_text">Considera di lasciare una recensione se ti piace questa applicazione!</string>
-    <string name="text_interface">Interfaccia</string>
     <string name="text_language">Lingua:</string>
     <string name="button_reset">Reset</string>
     <string name="button_save">Salva</string>

@@ -22,7 +22,6 @@
 
     <string name="alert_review_title">Review</string>
     <string name="alert_review_text">Consider leaving a review if you like this app!</string>
-    <string name="text_interface">Interface</string>
     <string name="text_language">Language:</string>
     <string name="button_reset">Reset</string>
     <string name="button_save">Save</string>

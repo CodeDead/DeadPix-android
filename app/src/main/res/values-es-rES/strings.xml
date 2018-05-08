@@ -21,7 +21,6 @@
     <string name="button_save">Salvar</string>
     <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\n\nCopyright © CodeDead 2018</string>
     <string name="text_delay">Retrasar:</string>
-    <string name="text_interface">Interfaz</string>
     <string name="text_language">Idioma:</string>
     <string name="toast_settings_saved">¡Todos los ajustes han sido guardados!</string>
     <string name="toast_settins_reset">¡Todas las configuraciones han sido reiniciadas!</string>
