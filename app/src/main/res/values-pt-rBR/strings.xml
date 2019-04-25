@@ -12,7 +12,7 @@
     <string name="nav_info">Informações</string>
     <string name="nav_tools">Ferramentas</string>
     <string name="text_help">Pressione qualquer um dos botões coloridos em sua tela usando o Pixel Fixer para tentar localizar um pixel morto ou preso.\nPressione o botão \'Corrigir\' para iniciar o Pixel Fixer\n\nNós recomendamos deixar o DeadPix ativo por no mínimo 30 minutos.\nSe você precisar de suporte adicional, visite nosso site ou envie-nos um e-mail.</string>
-    <string name="text_about">DeadPix foi criado por DeadLine. Este aplicativo foi criado com o intuito de tentar ajudá-lo a corrigir pixels mortos ou presos.\nNós não garantimos que o DeadPix irá resolver os problemas da sua tela. Este aplicativo é fornecido como está.\n\nTodas as imagens foram fornecidas pelo Google.\n\nCopyright © CodeDead 2018</string>
+    <string name="text_about">DeadPix foi criado por DeadLine. Este aplicativo foi criado com o intuito de tentar ajudá-lo a corrigir pixels mortos ou presos.\nNós não garantimos que o DeadPix irá resolver os problemas da sua tela. Este aplicativo é fornecido como está.\n\nTodas as imagens foram fornecidas pelo Google.\nTraduções:\n* Português (Brasil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2019 CodeDead</string>
     <string name="btn_website">Website</string>
     <string name="btn_support">Suporte</string>
     <string name="alert_review_title">Avalie-nos</string>
@@ -23,7 +23,7 @@
     <string name="button_close_fix">Fechar</string>
     <string name="toast_settins_reset">Todas as configurações foram restauradas!</string>
     <string name="toast_settings_saved">Todas as configurações foram salvas!</string>
-    <string name="text_delay">Delay:</string>
+    <string name="text_delay">Demora:</string>
     <string name="button_fix">Corrigir</string>
     <string name="alert_review_never">Nunca</string>
     <string name="nav_donate">Doar</string>

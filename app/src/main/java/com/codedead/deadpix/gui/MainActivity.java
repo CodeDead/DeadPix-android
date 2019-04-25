@@ -1,7 +1,6 @@
 package com.codedead.deadpix.gui;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -20,15 +19,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -52,15 +52,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         viewFlipper = findViewById(R.id.ViewFlipper_Main);
@@ -88,176 +88,121 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_donate:
-                openSite("https://codedead.com/?page_id=302");
-                break;
+        if (item.getItemId() == R.id.nav_donate) {
+            openSite("https://codedead.com/?page_id=302");
         }
         return true;
     }
 
+    /**
+     * Load the content of the Fixer screen
+     */
     private void content_fixer() {
-        FloatingActionButton fabRed = findViewById(R.id.fab_red);
-        FloatingActionButton fabGreen = findViewById(R.id.fab_green);
-        FloatingActionButton fabBlue = findViewById(R.id.fab_blue);
-        FloatingActionButton fabYellow = findViewById(R.id.fab_yellow);
-        FloatingActionButton fabWhite = findViewById(R.id.fab_white);
-        FloatingActionButton fabBlack = findViewById(R.id.fab_black);
-        FloatingActionButton fabOrange = findViewById(R.id.fab_orange);
-        FloatingActionButton fabDarkBlue = findViewById(R.id.fab_darkblue);
-        FloatingActionButton fabPurple = findViewById(R.id.fab_purple);
+        final FloatingActionButton fabRed = findViewById(R.id.fab_red);
+        final FloatingActionButton fabGreen = findViewById(R.id.fab_green);
+        final FloatingActionButton fabBlue = findViewById(R.id.fab_blue);
+        final FloatingActionButton fabYellow = findViewById(R.id.fab_yellow);
+        final FloatingActionButton fabWhite = findViewById(R.id.fab_white);
+        final FloatingActionButton fabBlack = findViewById(R.id.fab_black);
+        final FloatingActionButton fabOrange = findViewById(R.id.fab_orange);
+        final FloatingActionButton fabDarkBlue = findViewById(R.id.fab_darkblue);
+        final FloatingActionButton fabPurple = findViewById(R.id.fab_purple);
 
-        Button btnFix = findViewById(R.id.BtnFix);
+        final Button btnFix = findViewById(R.id.BtnFix);
 
-        fabRed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.red));
-            }
-        });
+        fabRed.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.red)));
 
-        fabGreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.green));
-            }
-        });
+        fabGreen.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.green)));
 
-        fabBlue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.blue));
-            }
-        });
+        fabBlue.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.blue)));
 
-        fabYellow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.yellow));
-            }
-        });
+        fabYellow.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.yellow)));
 
-        fabWhite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.white));
-            }
-        });
+        fabWhite.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.white)));
 
-        fabBlack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.black));
-            }
-        });
+        fabBlack.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.black)));
 
-        fabOrange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.orange));
-            }
-        });
+        fabOrange.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.orange)));
 
-        fabDarkBlue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.darkblue));
-            }
-        });
+        fabDarkBlue.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.darkblue)));
 
-        fabPurple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLocator(ContextCompat.getColor(MainActivity.this, R.color.purple));
-            }
-        });
+        fabPurple.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.purple)));
 
-        btnFix.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FixActivity.class);
-                intent.putExtra("action", "fix");
-                intent.putExtra("delay", sharedPreferences.getInt("delay", 1));
-                startActivity(intent);
-            }
+        btnFix.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FixActivity.class);
+            intent.putExtra("action", "fix");
+            intent.putExtra("delay", sharedPreferences.getInt("delay", 1));
+            startActivity(intent);
         });
     }
 
+    /**
+     * Open the dead pixel locator
+     *
+     * @param color The color that the activity should use
+     */
     private void openLocator(int color) {
-        Intent intent = new Intent(this, FixActivity.class);
+        final Intent intent = new Intent(this, FixActivity.class);
         intent.putExtra("color", color);
         startActivity(intent);
     }
 
+    /**
+     * Load the content of the Help screen
+     */
     private void content_help() {
-        Button btnWebsite = findViewById(R.id.BtnWebsite);
-        Button btnSupport = findViewById(R.id.BtnMail);
+        final Button btnWebsite = findViewById(R.id.BtnWebsite);
+        final Button btnSupport = findViewById(R.id.BtnMail);
 
-        btnWebsite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSite("https://codedead.com/");
-            }
-        });
+        btnWebsite.setOnClickListener(v -> openSite("https://codedead.com/"));
 
-        btnSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShareCompat.IntentBuilder.from(MainActivity.this)
-                        .setType("message/rfc822")
-                        .addEmailTo("admin@codedead.com")
-                        .setSubject("DeadPix - Android")
-                        .setText("")
-                        .setChooserTitle(R.string.text_send_mail)
-                        .startChooser();
-            }
-        });
+        btnSupport.setOnClickListener(v -> ShareCompat.IntentBuilder.from(MainActivity.this)
+                .setType("message/rfc822")
+                .addEmailTo("admin@codedead.com")
+                .setSubject("DeadPix - Android")
+                .setText("")
+                .setChooserTitle(R.string.text_send_mail)
+                .startChooser());
     }
 
+    /**
+     * Load the content of the About screen
+     */
     private void content_about() {
-        ImageButton btnWebsite = findViewById(R.id.BtnWebsiteAbout);
-        ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
-        ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
+        final ImageButton btnWebsite = findViewById(R.id.BtnWebsiteAbout);
+        final ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
+        final ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
+        final TextView txtAbout = findViewById(R.id.TxtAbout);
+        txtAbout.setMovementMethod(LinkMovementMethod.getInstance());
 
-        btnWebsite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSite("https://codedead.com/");
-            }
-        });
+        btnWebsite.setOnClickListener(v -> openSite("https://codedead.com/"));
 
-        btnFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSite("https://facebook.com/deadlinecodedead");
-            }
-        });
+        btnFacebook.setOnClickListener(v -> openSite("https://facebook.com/deadlinecodedead"));
 
-        btnTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSite("https://twitter.com/C0DEDEAD");
-            }
-        });
+        btnTwitter.setOnClickListener(v -> openSite("https://twitter.com/C0DEDEAD"));
     }
 
+    /**
+     * Load the content of the Settings screen
+     */
     private void content_settings() {
         final Spinner spnLanguage = findViewById(R.id.SpnLanguages);
         final SeekBar sbDelay = findViewById(R.id.SbDelay);
         final CheckBox chbFullBrightness = findViewById(R.id.ChbFullBrightness);
         final CheckBox chbColourClick = findViewById(R.id.ChbChangeColours);
-        Button btnReset = findViewById(R.id.BtnReset);
-        Button btnSave = findViewById(R.id.BtnSave);
+        final Button btnReset = findViewById(R.id.BtnReset);
+        final Button btnSave = findViewById(R.id.BtnSave);
 
-        String lang = sharedPreferences.getString("language", "en");
+        final String lang = sharedPreferences.getString("language", "en");
 
+        assert lang != null;
         switch (lang) {
             default:
             case "en":
@@ -278,43 +223,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case "es":
                 spnLanguage.setSelection(5);
                 break;
+            case "pt":
+                spnLanguage.setSelection(6);
+                break;
         }
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
         chbFullBrightness.setChecked(sharedPreferences.getBoolean("fullBrightness", true));
         chbColourClick.setChecked(sharedPreferences.getBoolean("changeColours", true));
 
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveSettings(0, 100, true, true);
-                spnLanguage.setSelection(0);
+        btnReset.setOnClickListener(v -> {
+            saveSettings(0, 100, true, true);
+            spnLanguage.setSelection(0);
 
-                Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
-                Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
-                recreate();
-            }
+            Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+            Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
+            recreate();
         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int delay = sbDelay.getProgress();
-                if (delay == 0) delay = 1;
+        btnSave.setOnClickListener(v -> {
+            int delay = sbDelay.getProgress();
+            if (delay == 0) delay = 1;
 
-                saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked(), chbColourClick.isChecked());
+            saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked(), chbColourClick.isChecked());
 
-                Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
-                Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
-                recreate();
-            }
+            Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+            Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
+            recreate();
         });
     }
 
+    /**
+     * Load the content of the alerts
+     */
     private void content_alerts() {
         if (sharedPreferences.getInt("reviewTimes", 0) >= 2) return;
 
-        Random rnd = new Random();
+        final Random rnd = new Random();
 
         new CountDownTimer(rnd.nextInt(180) * 1000, 1000) {
 
@@ -324,37 +269,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onFinish() {
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                final AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                 builder1.setTitle(R.string.alert_review_title);
                 builder1.setMessage(R.string.alert_review_text);
                 builder1.setCancelable(true);
 
-                builder1.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
+                builder1.setPositiveButton(android.R.string.yes, (dialog, id) -> {
+                    dialog.cancel();
 
-                        addReview(true);
-                        openPlayStore();
-                    }
+                    addReview(true);
+                    openSite("market://details?id=com.codedead.deadpix");
                 });
 
-                builder1.setNegativeButton(R.string.alert_review_never, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                        addReview(true);
-                    }
+                builder1.setNegativeButton(R.string.alert_review_never, (dialog, id) -> {
+                    dialog.cancel();
+                    addReview(true);
                 });
 
-                builder1.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                        addReview(false);
-                    }
+                builder1.setNeutralButton(android.R.string.no, (dialog, which) -> {
+                    dialog.cancel();
+                    addReview(false);
                 });
 
-                AlertDialog alert11 = builder1.create();
-                if (!isFinishing() &&!paused) {
+                final AlertDialog alert11 = builder1.create();
+                if (!isFinishing() && !paused) {
                     alert11.show();
                 } else {
                     cancel();
@@ -376,11 +314,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
     }
 
-    private void saveSettings(int language, int delay, boolean fullBrightness, boolean changeColours) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    /**
+     * Save the settings
+     *
+     * @param languageIndex  The language index that should be saved
+     * @param delay          The delay that should be saved
+     * @param fullBrightness Set whether screen brightness should be 100% or not
+     * @param changeColours  True if colours should switch, otherwise false
+     */
+    private void saveSettings(int languageIndex, int delay, boolean fullBrightness, boolean changeColours) {
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String lang;
-        switch (language) {
+        switch (languageIndex) {
             default:
             case 0:
                 lang = "en";
@@ -400,6 +346,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case 5:
                 lang = "es";
                 break;
+            case 6:
+                lang = "pt";
+                break;
         }
 
         editor.putString("language", lang);
@@ -410,8 +359,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.apply();
     }
 
+    /**
+     * Method that is used to determine the amount of times the user has been asked for a review.
+     * The user can only be asked to do a review 3 times
+     *
+     * @param done True if the user accepted to leave a review, otherwise false
+     */
     private void addReview(boolean done) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if (done) {
             editor.putInt("reviewTimes", 3);
@@ -422,23 +377,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.apply();
     }
 
-    private void openPlayStore() {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("market://details?id=com.codedead.deadpix"));
-            startActivity(intent);
-        } catch (Exception ignored) {
-
-        }
-    }
-
+    /**
+     * Open a site using an Intent
+     * @param site The site that should be opened
+     */
     private void openSite(String site) {
         try {
             Uri uriUrl = Uri.parse(site);
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
-        } catch (Exception ignored) {
-            ignored.printStackTrace();
+        } catch (Exception ex) {
+            // Ignored
         }
     }
 
@@ -461,7 +410,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -473,18 +422,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, R.string.toast_back_again, Toast.LENGTH_SHORT).show();
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
+            new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+        final int id = item.getItemId();
 
         switch (id) {
             case R.id.nav_fixer:
@@ -501,7 +445,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

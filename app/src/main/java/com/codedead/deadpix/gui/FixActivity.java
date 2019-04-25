@@ -58,12 +58,7 @@ public class FixActivity extends AppCompatActivity {
         }
     };
     private boolean mVisible;
-    private final Runnable mHideRunnable = new Runnable() {
-        @Override
-        public void run() {
-            hide();
-        }
-    };
+    private final Runnable mHideRunnable = this::hide;
     private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
         @SuppressLint("ClickableViewAccessibility")
         @Override
@@ -101,21 +96,18 @@ public class FixActivity extends AppCompatActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         frameLayout = findViewById(R.id.frame_fix);
 
-        frameLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                long pressTime = System.currentTimeMillis();
+        frameLayout.setOnClickListener(view -> {
+            final long pressTime = System.currentTimeMillis();
 
-                if (pressTime - lastPressTime > doublePressDelay) {
-                    if (!isFixing && sharedPreferences.getBoolean("changeColours", true)) {
-                        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                        frameLayout.setBackgroundColor(color);
-                    }
-                } else {
-                    toggle();
+            if (pressTime - lastPressTime > doublePressDelay) {
+                if (!isFixing && sharedPreferences.getBoolean("changeColours", true)) {
+                    final int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                    frameLayout.setBackgroundColor(color);
                 }
-                lastPressTime = pressTime;
+            } else {
+                toggle();
             }
+            lastPressTime = pressTime;
         });
 
         findViewById(R.id.BtnCloseFix).setOnTouchListener(mDelayHideTouchListener);
@@ -136,7 +128,7 @@ public class FixActivity extends AppCompatActivity {
         }
 
         if (sharedPreferences.getBoolean("fullBrightness", true)) {
-            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            final WindowManager.LayoutParams lp = getWindow().getAttributes();
             lp.screenBrightness = 1.0f;
             getWindow().setAttributes(lp);
         }
@@ -153,7 +145,7 @@ public class FixActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                final int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 frameLayout.setBackgroundColor(color);
                 if (!fixCancelled) {
                     start();
@@ -178,7 +170,7 @@ public class FixActivity extends AppCompatActivity {
     }
 
     private void hide() {
-        ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
