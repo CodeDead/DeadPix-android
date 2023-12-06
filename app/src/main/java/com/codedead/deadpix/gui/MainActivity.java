@@ -8,17 +8,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ShareCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.core.app.ShareCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.nav_donate) {
-            openSite("https://codedead.com/?page_id=302");
+            openSite("https://codedead.com/donate");
         }
         return true;
     }
@@ -136,9 +140,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fabPurple.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.purple)));
 
         btnFix.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FixActivity.class);
+            final Intent intent = new Intent(MainActivity.this, FixActivity.class);
+
             intent.putExtra("action", "fix");
             intent.putExtra("delay", sharedPreferences.getInt("delay", 1));
+
             startActivity(intent);
         });
     }
@@ -163,9 +169,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         btnWebsite.setOnClickListener(v -> openSite("https://codedead.com/"));
 
-        btnSupport.setOnClickListener(v -> ShareCompat.IntentBuilder.from(MainActivity.this)
+        btnSupport.setOnClickListener(v -> new ShareCompat.IntentBuilder(MainActivity.this)
                 .setType("message/rfc822")
-                .addEmailTo("admin@codedead.com")
+                .addEmailTo("support@codedead.com")
                 .setSubject("DeadPix - Android")
                 .setText("")
                 .setChooserTitle(R.string.text_send_mail)
@@ -202,30 +208,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         final String lang = sharedPreferences.getString("language", "en");
 
-        assert lang != null;
         switch (lang) {
-            default:
-            case "en":
-                spnLanguage.setSelection(0);
-                break;
-            case "nl":
-                spnLanguage.setSelection(1);
-                break;
-            case "fr":
-                spnLanguage.setSelection(2);
-                break;
-            case "de":
-                spnLanguage.setSelection(3);
-                break;
-            case "it":
-                spnLanguage.setSelection(4);
-                break;
-            case "es":
-                spnLanguage.setSelection(5);
-                break;
-            case "pt":
-                spnLanguage.setSelection(6);
-                break;
+            default -> spnLanguage.setSelection(0);
+            case "nl" -> spnLanguage.setSelection(1);
+            case "fr" -> spnLanguage.setSelection(2);
+            case "de" -> spnLanguage.setSelection(3);
+            case "it" -> spnLanguage.setSelection(4);
+            case "es" -> spnLanguage.setSelection(5);
+            case "pt" -> spnLanguage.setSelection(6);
         }
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
@@ -325,31 +315,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void saveSettings(int languageIndex, int delay, boolean fullBrightness, boolean changeColours) {
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        String lang;
-        switch (languageIndex) {
-            default:
-            case 0:
-                lang = "en";
-                break;
-            case 1:
-                lang = "nl";
-                break;
-            case 2:
-                lang = "fr";
-                break;
-            case 3:
-                lang = "de";
-                break;
-            case 4:
-                lang = "it";
-                break;
-            case 5:
-                lang = "es";
-                break;
-            case 6:
-                lang = "pt";
-                break;
-        }
+        String lang = switch (languageIndex) {
+            default -> "en";
+            case 1 -> "nl";
+            case 2 -> "fr";
+            case 3 -> "de";
+            case 4 -> "it";
+            case 5 -> "es";
+            case 6 -> "pt";
+        };
 
         editor.putString("language", lang);
         editor.putInt("delay", delay);
@@ -379,14 +353,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * Open a site using an Intent
+     *
      * @param site The site that should be opened
      */
     private void openSite(String site) {
         try {
-            Uri uriUrl = Uri.parse(site);
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            final Uri uriUrl = Uri.parse(site);
+            final Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             // Ignored
         }
     }
@@ -398,7 +373,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleHelper.onAttach(getBaseContext());
     }
@@ -430,19 +405,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final int id = item.getItemId();
 
-        switch (id) {
-            case R.id.nav_fixer:
-                viewFlipper.setDisplayedChild(0);
-                break;
-            case R.id.nav_help:
-                viewFlipper.setDisplayedChild(1);
-                break;
-            case R.id.nav_about:
-                viewFlipper.setDisplayedChild(2);
-                break;
-            case R.id.nav_settings:
-                viewFlipper.setDisplayedChild(3);
-                break;
+        if (id == R.id.nav_fixer) {
+            viewFlipper.setDisplayedChild(0);
+        } else if (id == R.id.nav_help) {
+            viewFlipper.setDisplayedChild(1);
+        } else if (id == R.id.nav_about) {
+            viewFlipper.setDisplayedChild(2);
+        } else if (id == R.id.nav_settings) {
+            viewFlipper.setDisplayedChild(3);
         }
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);

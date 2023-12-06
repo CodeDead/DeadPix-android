@@ -19,7 +19,7 @@
     <string name="button_fix">Fijar</string>
     <string name="button_reset">Reiniciar</string>
     <string name="button_save">Salvar</string>
-    <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\nTraducciones:\n* Portugués (Brasil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2019 CodeDead</string>
+    <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\nTraducciones:\n* Portugués (Brasil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
     <string name="text_delay">Retrasar:</string>
     <string name="text_language">Idioma:</string>
     <string name="toast_settings_saved">¡Todos los ajustes han sido guardados!</string>

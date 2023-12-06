@@ -23,7 +23,7 @@
     <string name="toast_settings_saved">Tous les réglages ont été sauvegardés!</string>
     <string name="toast_settins_reset">Tous les réglages ont été réinitialisés!</string>
     <string name="text_help">Appuyez sur n\'importe lequel des boutons colorés de votre écran à l\'aide du fixateur de pixels pour essayer de localiser un pixel mort ou fixé.\nAppuyez sur le bouton \'Réparer\' pour démarrer l\'utilitaire de fixation de pixel.\n\nNous vous recommandons de laisser DeadPix pendant au moins 30 minutes.\nSi vous avez besoin d\'un support supplémentaire, vous pouvez visiter notre site web ou nous envoyer un e-mail.</string>
-    <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts ou bloqués.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\nTraductions:\n* Portugais (Brésil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2019 CodeDead</string>
+    <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts ou bloqués.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\nTraductions:\n* Portugais (Brésil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
     <string name="alert_review_never">Jamais</string>
     <string name="nav_donate">Faire un don</string>
     <string name="string_full_brightness">Pleine luminosité</string>
