@@ -6,8 +6,10 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.CountDownTimer;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -50,7 +52,7 @@ public class FixActivity extends AppCompatActivity {
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
-            ActionBar actionBar = getSupportActionBar();
+            final ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.show();
             }
@@ -71,7 +73,7 @@ public class FixActivity extends AppCompatActivity {
     };
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleHelper.onAttach(getBaseContext());
     }

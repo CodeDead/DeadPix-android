@@ -15,7 +15,7 @@
     <string name="nav_settings">Einstellungen</string>
     <string name="nav_tools">Werkzeuge</string>
     <string name="navigation_drawer_close">Schließen Navigationsleiste</string>
-    <string name="text_about">DeadPix wurde von Deadline erstellt. Diese App wurde entworfen, um Ihnen helfen, mit toten oder stecken Pixel.\nWir garantieren nicht DeadPix, dass der Bildschirm Probleme beheben. Diese Anwendung ist vorgesehen, wie sie ist.\n\nAlle Bilder wurden von Google bereitgestellt.\nÜbersetzungen:\n* Portugiesisch (Brasilien) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2019 CodeDead</string>
+    <string name="text_about">DeadPix wurde von Deadline erstellt. Diese App wurde entworfen, um Ihnen helfen, mit toten oder stecken Pixel.\nWir garantieren nicht DeadPix, dass der Bildschirm Probleme beheben. Diese Anwendung ist vorgesehen, wie sie ist.\n\nAlle Bilder wurden von Google bereitgestellt.\nÜbersetzungen:\n* Portugiesisch (Brasilien) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
     <string name="navigation_drawer_open">Navigationsleiste öffnen</string>
     <string name="text_delay">Verzögerung:</string>
     <string name="text_help">Drücken Sie eine der farbigen Tasten auf dem Bildschirm, um die Pixel Fixer verwenden, um zu versuchen, und suchen Sie ein totes oder festes Pixel.\nDrücken Sie die \"Fix\" -Taste, um die Pixel Fixer Dienstprogramm zu starten.\n\nWir empfehlen, DeadPix für mindestens 30 Minuten.\nWenn Sie zusätzliche Unterstützung benötigen, können Sie unsere Website besuchen oder uns eine E-Mail senden.</string>

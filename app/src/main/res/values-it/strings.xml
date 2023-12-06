@@ -13,7 +13,7 @@
     <string name="nav_info">Info</string>
     <string name="nav_tools">Strumenti</string>
     <string name="text_help">Premere uno dei pulsanti colorati sullo schermo utilizzando il fixer di pixel per cercare di individuare un pixel morto o bloccato.\nPremere il pulsante \'Fix\' per avviare l\'utilità di fissaggio dei pixel.\n\nPer consigliamo di lasciare DeadPix attivo per almeno 30 minuti.\nSe hai bisogno di un supporto aggiuntivo, puoi visitare il nostro sito web o inviarci un\'e-mail.</string>
-    <string name="text_about">DeadPix è stato creato da DeadLine. Questa applicazione è stata progettata per aiutarti con pixel morti o bloccati.\nNon garantiamo che DeadPix risolverà i problemi relativi al tuo schermo. Questa applicazione viene fornita come-è.\n\nTutte le immagini sono state fornite da Google.\nTraduzioni:\n* Portoghese (Brasile) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2019 CodeDead</string>
+    <string name="text_about">DeadPix è stato creato da DeadLine. Questa applicazione è stata progettata per aiutarti con pixel morti o bloccati.\nNon garantiamo che DeadPix risolverà i problemi relativi al tuo schermo. Questa applicazione viene fornita come-è.\n\nTutte le immagini sono state fornite da Google.\nTraduzioni:\n* Portoghese (Brasile) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
     <string name="btn_website">Sito web</string>
     <string name="btn_support">Supporto</string>
 
