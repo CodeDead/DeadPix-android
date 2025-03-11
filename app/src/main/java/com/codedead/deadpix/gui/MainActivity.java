@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toolbar.setOnClickListener(v -> {
             viewFlipper.setDisplayedChild(0);
+            navigationView.setCheckedItem(navigationView.getMenu().getItem(0).getSubMenu().getItem(0).getItemId());
         });
     }
 
