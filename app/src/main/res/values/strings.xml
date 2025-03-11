@@ -14,7 +14,7 @@
     <string name="nav_info">Info</string>
     <string name="nav_tools">Tools</string>
     <string name="text_help">Press any of the colored buttons on your screen using the pixel fixer to try and locate a dead or stuck pixel.\nPress the \'Fix\' button in order to start the pixel fixer utility.\n\nWe recommend leaving DeadPix on for at least 30 minutes.\nIf you need any additional support, you can visit our website or send us an e-mail.</string>
-    <string name="text_about">DeadPix was created by DeadLine. This app was designed to help you out with dead or stuck pixels.\nWe do not guarantee that DeadPix will fix your screen issues. This app is provided as-is.\n\nAll images were provided by Google.\nTranslations:\n* Portuguese (Brazil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
+    <string name="text_about">DeadPix was created by DeadLine. This app was designed to help you out with dead or stuck pixels.\nWe do not guarantee that DeadPix will fix your screen issues. This app is provided as-is.\n\nAll images were provided by Google.\nTranslations:\n* Portuguese (Brazil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2025 CodeDead</string>
     <string name="btn_website">Website</string>
     <string name="btn_support">Support</string>
     <string name="hint_help_image" translatable="false">Help image</string>
@@ -30,13 +30,22 @@
     <string name="toast_settings_saved">All settings have been saved!</string>
     <string name="text_delay">Delay:</string>
     <string name="button_fix">Fix</string>
-    <string name="descr_facebook_logo" translatable="false">Facebook logo</string>
-    <string name="descr_twitter_logo" translatable="false">Twitter logo</string>
+    <string name="descr_facebook_logo">Facebook logo</string>
+    <string name="descr_bluesky_logo">Bluesky logo</string>
+    <string name="codedead_website">CodeDead website</string>
     <string name="alert_review_never">Never</string>
-    <string name="content_codedead_logo" translatable="false">CodeDead Logo</string>
     <string name="nav_donate">Donate</string>
     <string name="string_full_brightness">Full brightness</string>
     <string name="string_change_colours">Change colours on click</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="yellow">Yellow</string>
+    <string name="orange">Orange</string>
+    <string name="dark_blue">Dark blue</string>
+    <string name="white">White</string>
+    <string name="black">Black</string>
+    <string name="purple">Purple</string>
 
     <string-array name="array_languages" translatable="false">
         <item>English</item>

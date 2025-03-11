@@ -6,6 +6,9 @@
     <string name="btn_website">Site web</string>
     <string name="button_close_fix">Fermer</string>
     <string name="button_fix">Réparer</string>
+    <string name="descr_facebook_logo">Logo Facebook</string>
+    <string name="descr_bluesky_logo">Logo Bluesky</string>
+    <string name="codedead_website">CodeDead</string>
     <string name="button_reset">Réinitialiser</string>
     <string name="button_save">Sauvegarder</string>
     <string name="nav_about">A propos</string>
@@ -23,9 +26,18 @@
     <string name="toast_settings_saved">Tous les réglages ont été sauvegardés!</string>
     <string name="toast_settins_reset">Tous les réglages ont été réinitialisés!</string>
     <string name="text_help">Appuyez sur n\'importe lequel des boutons colorés de votre écran à l\'aide du fixateur de pixels pour essayer de localiser un pixel mort ou fixé.\nAppuyez sur le bouton \'Réparer\' pour démarrer l\'utilitaire de fixation de pixel.\n\nNous vous recommandons de laisser DeadPix pendant au moins 30 minutes.\nSi vous avez besoin d\'un support supplémentaire, vous pouvez visiter notre site web ou nous envoyer un e-mail.</string>
-    <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts ou bloqués.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\nTraductions:\n* Portugais (Brésil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
+    <string name="text_about">DeadPix a été créé par DeadLine. Cette application a été conçue pour vous aider avec des pixels morts ou bloqués.\nNous ne garantissons pas que DeadPix réparera vos problèmes d\'écran. Cette application est fournie tel quel.\n\nToutes les images ont été fournies par Google.\nTraductions:\n* Portugais (Brésil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2025 CodeDead</string>
     <string name="alert_review_never">Jamais</string>
     <string name="nav_donate">Faire un don</string>
     <string name="string_full_brightness">Pleine luminosité</string>
     <string name="string_change_colours">Modifier les couleurs sur clic</string>
+    <string name="red">Rouge</string>
+    <string name="green">Vert</string>
+    <string name="blue">Bleu</string>
+    <string name="yellow">Jaune</string>
+    <string name="orange">Orange</string>
+    <string name="dark_blue">Bleu foncé</string>
+    <string name="white">Blanc</string>
+    <string name="black">Noir</string>
+    <string name="purple">Violet</string>
 </resources>

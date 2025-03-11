@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codedead.deadpix.gui.MainActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context="com.codedead.deadpix.gui.MainActivity">
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        tools:ignore="UselessParent">
 
         <TableRow android:layout_margin="5dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_red"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/red"
                 app:backgroundTint="@color/red"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -26,6 +27,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_green"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/green"
                 app:backgroundTint="@color/green"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -35,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/orange"
                 app:backgroundTint="@android:color/holo_orange_dark"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -45,6 +48,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_blue"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/blue"
                 app:backgroundTint="@color/blue"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -52,6 +56,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_yellow"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/yellow"
                 app:backgroundTint="@color/yellow"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -61,6 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/dark_blue"
                 app:backgroundTint="@color/darkblue"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -71,6 +77,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_white"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/white"
                 app:backgroundTint="@android:color/white"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -78,6 +85,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_black"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/black"
                 app:backgroundTint="@android:color/black"
                 app:elevation="0dp"
                 app:fabSize="normal" />
@@ -87,12 +95,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:contentDescription="@string/purple"
                 app:backgroundTint="@color/purple"
                 app:elevation="0dp"
                 app:fabSize="normal" />
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/BtnFix"
                 style="@style/Widget.AppCompat.Button.Colored"

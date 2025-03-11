@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,10 +25,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Looper;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
@@ -50,12 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private boolean paused;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
         LocaleHelper.setLocale(this, sharedPreferences.getString("language", "en"));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -88,17 +93,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         content_settings();
 
         content_alerts();
+
+        final OnBackPressedDispatcher dispatcher = getOnBackPressedDispatcher();
+        dispatcher.addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    if (doubleBackToExitPressedOnce) {
+                        finish();
+                        return;
+                    }
+
+                    doubleBackToExitPressedOnce = true;
+                    Toast.makeText(MainActivity.this, R.string.toast_back_again, Toast.LENGTH_SHORT).show();
+
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
+                }
+            }
+        });
+
+        toolbar.setOnClickListener(v -> {
+            viewFlipper.setDisplayedChild(0);
+        });
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         if (item.getItemId() == R.id.nav_donate) {
             openSite("https://codedead.com/donate");
         }
@@ -122,21 +151,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final Button btnFix = findViewById(R.id.BtnFix);
 
         fabRed.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.red)));
-
         fabGreen.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.green)));
-
         fabBlue.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.blue)));
-
         fabYellow.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.yellow)));
-
         fabWhite.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.white)));
-
         fabBlack.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, android.R.color.black)));
-
         fabOrange.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.orange)));
-
         fabDarkBlue.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.darkblue)));
-
         fabPurple.setOnClickListener(v -> openLocator(ContextCompat.getColor(MainActivity.this, R.color.purple)));
 
         btnFix.setOnClickListener(v -> {
@@ -154,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      *
      * @param color The color that the activity should use
      */
-    private void openLocator(int color) {
+    private void openLocator(final int color) {
         final Intent intent = new Intent(this, FixActivity.class);
         intent.putExtra("color", color);
         startActivity(intent);
@@ -184,15 +205,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void content_about() {
         final ImageButton btnWebsite = findViewById(R.id.BtnWebsiteAbout);
         final ImageButton btnFacebook = findViewById(R.id.BtnFacebook);
-        final ImageButton btnTwitter = findViewById(R.id.BtnTwitter);
+        final ImageButton btnBluesky = findViewById(R.id.BtnBluesky);
         final TextView txtAbout = findViewById(R.id.TxtAbout);
         txtAbout.setMovementMethod(LinkMovementMethod.getInstance());
 
         btnWebsite.setOnClickListener(v -> openSite("https://codedead.com/"));
-
         btnFacebook.setOnClickListener(v -> openSite("https://facebook.com/deadlinecodedead"));
-
-        btnTwitter.setOnClickListener(v -> openSite("https://twitter.com/C0DEDEAD"));
+        btnBluesky.setOnClickListener(v -> openSite("https://bsky.app/profile/codedead.com"));
     }
 
     /**
@@ -209,13 +228,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final String lang = sharedPreferences.getString("language", "en");
 
         switch (lang) {
-            default -> spnLanguage.setSelection(0);
             case "nl" -> spnLanguage.setSelection(1);
             case "fr" -> spnLanguage.setSelection(2);
             case "de" -> spnLanguage.setSelection(3);
             case "it" -> spnLanguage.setSelection(4);
             case "es" -> spnLanguage.setSelection(5);
             case "pt" -> spnLanguage.setSelection(6);
+            default -> spnLanguage.setSelection(0);
         }
 
         sbDelay.setProgress(sharedPreferences.getInt("delay", 100));
@@ -226,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             saveSettings(0, 100, true, true);
             spnLanguage.setSelection(0);
 
-            Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+            final Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
             Toast.makeText(MainActivity.this, c.getString(R.string.toast_settins_reset), Toast.LENGTH_SHORT).show();
             recreate();
         });
@@ -237,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             saveSettings(spnLanguage.getSelectedItemPosition(), delay, chbFullBrightness.isChecked(), chbColourClick.isChecked());
 
-            Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
+            final Context c = LocaleHelper.setLocale(getApplicationContext(), sharedPreferences.getString("language", "en"));
             Toast.makeText(MainActivity.this, c.getString(R.string.toast_settings_saved), Toast.LENGTH_SHORT).show();
             recreate();
         });
@@ -250,11 +269,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (sharedPreferences.getInt("reviewTimes", 0) >= 2) return;
 
         final Random rnd = new Random();
-
         new CountDownTimer(rnd.nextInt(180) * 1000, 1000) {
 
             @Override
-            public void onTick(long millisUntilFinished) {
+            public void onTick(final long millisUntilFinished) {
             }
 
             @Override
@@ -312,17 +330,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * @param fullBrightness Set whether screen brightness should be 100% or not
      * @param changeColours  True if colours should switch, otherwise false
      */
-    private void saveSettings(int languageIndex, int delay, boolean fullBrightness, boolean changeColours) {
+    private void saveSettings(final int languageIndex, final int delay, final boolean fullBrightness, final boolean changeColours) {
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        String lang = switch (languageIndex) {
-            default -> "en";
+        final String lang = switch (languageIndex) {
             case 1 -> "nl";
             case 2 -> "fr";
             case 3 -> "de";
             case 4 -> "it";
             case 5 -> "es";
             case 6 -> "pt";
+            default -> "en";
         };
 
         editor.putString("language", lang);
@@ -339,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      *
      * @param done True if the user accepted to leave a review, otherwise false
      */
-    private void addReview(boolean done) {
+    private void addReview(final boolean done) {
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if (done) {
@@ -356,7 +374,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      *
      * @param site The site that should be opened
      */
-    private void openSite(String site) {
+    private void openSite(final String site) {
         try {
             final Uri uriUrl = Uri.parse(site);
             final Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
@@ -367,42 +385,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(final Bundle savedInstanceState) {
         savedInstanceState.putInt("TAB_NUMBER", viewFlipper.getDisplayedChild());
         super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull final Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleHelper.onAttach(getBaseContext());
     }
 
     @Override
-    protected void attachBaseContext(Context base) {
+    protected void attachBaseContext(final Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base));
     }
 
     @Override
-    public void onBackPressed() {
-        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, R.string.toast_back_again, Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
         final int id = item.getItemId();
 
         if (id == R.id.nav_fixer) {

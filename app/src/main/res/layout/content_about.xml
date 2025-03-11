@@ -34,26 +34,23 @@
 
             <ImageButton
                 android:id="@+id/BtnFacebook"
-                style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/descr_facebook_logo"
                 app:srcCompat="@drawable/ic_facebook_icon" />
 
             <ImageButton
-                android:id="@+id/BtnTwitter"
-                style="@android:style/Widget.Holo.ImageButton"
+                android:id="@+id/BtnBluesky"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/descr_twitter_logo"
-                app:srcCompat="@drawable/ic_twitter_icon" />
+                android:contentDescription="@string/descr_bluesky_logo"
+                app:srcCompat="@drawable/bluesky_logo" />
 
             <ImageButton
                 android:id="@+id/BtnWebsiteAbout"
-                style="@android:style/Widget.Holo.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/descr_twitter_logo"
+                android:contentDescription="@string/codedead_website"
                 app:srcCompat="@drawable/ic_public" />
 
         </LinearLayout>

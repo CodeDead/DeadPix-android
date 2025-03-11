@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -73,18 +74,18 @@ public class FixActivity extends AppCompatActivity {
     };
 
     @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull final Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleHelper.onAttach(getBaseContext());
     }
 
     @Override
-    protected void attachBaseContext(Context base) {
+    protected void attachBaseContext(final Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base));
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         final SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_file_key), Context.MODE_PRIVATE);
         LocaleHelper.setLocale(this, sharedPreferences.getString("language", "en"));
 
@@ -122,10 +123,8 @@ public class FixActivity extends AppCompatActivity {
                 frameLayout.setBackgroundColor(getIntent().getIntExtra("color", 0));
             }
 
-            if (getIntent().getStringExtra("action") != null) {
-                if (getIntent().getStringExtra("action").equals("fix")) {
-                    fix();
-                }
+            if (getIntent() != null && getIntent().getStringExtra("action") != null && getIntent().getStringExtra("action").equals("fix")) {
+                fix();
             }
         }
 
@@ -142,7 +141,7 @@ public class FixActivity extends AppCompatActivity {
         new CountDownTimer(fixDelay, 1000) {
 
             @Override
-            public void onTick(long millisUntilFinished) {
+            public void onTick(final long millisUntilFinished) {
             }
 
             @Override
@@ -157,7 +156,7 @@ public class FixActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate(final Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         delayedHide(300);
     }
@@ -193,7 +192,12 @@ public class FixActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
     }
 
-    private void delayedHide(int delayMillis) {
+    /**
+     * Delay the hiding of the UI
+     *
+     * @param delayMillis The delay in milliseconds
+     */
+    private void delayedHide(final int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
