@@ -17,9 +17,12 @@
     <string name="btn_website">Sitio web</string>
     <string name="button_close_fix">Cerca</string>
     <string name="button_fix">Fijar</string>
+    <string name="descr_facebook_logo">Logotipo de Facebook</string>
+    <string name="descr_bluesky_logo">Logotipo de Bluesky</string>
+    <string name="codedead_website">CodeDead</string>
     <string name="button_reset">Reiniciar</string>
     <string name="button_save">Salvar</string>
-    <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\nTraducciones:\n* Portugués (Brasil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2023 CodeDead</string>
+    <string name="text_about">DeadPix fue creado por DeadLine. Esta aplicación fue diseñada para ayudarte con los píxeles muertos o atascados.\nNo garantizamos que DeadPix resuelva sus problemas de pantalla. Esta aplicación se proporciona tal cual.\n\nTodas las imágenes fueron provistas por Google.\nTraducciones:\n* Portugués (Brasil) - <a href="https://github.com/SnwMds">SnwMds</a>\n\nCopyright © 2025 CodeDead</string>
     <string name="text_delay">Retrasar:</string>
     <string name="text_language">Idioma:</string>
     <string name="toast_settings_saved">¡Todos los ajustes han sido guardados!</string>
@@ -28,4 +31,13 @@
     <string name="nav_donate">Donar</string>
     <string name="string_full_brightness">Brillo completo</string>
     <string name="string_change_colours">Cambiar colores al hacer clic</string>
+    <string name="red">Rojo</string>
+    <string name="green">Verde</string>
+    <string name="blue">Azul</string>
+    <string name="yellow">Amarillo</string>
+    <string name="orange">Naranja</string>
+    <string name="dark_blue">Azul oscuro</string>
+    <string name="white">Blanco</string>
+    <string name="black">Negro</string>
+    <string name="purple">Púrpura</string>
 </resources>
